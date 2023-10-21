@@ -5,6 +5,7 @@ import "./App.css";
 
 import HomePage from "./pages/home";
 import PortfolioPage from "./pages/portfolio";
+import HumourPage from "./pages/humour";
 import ContactPage from "./pages/contact";
 
 function App()
@@ -28,7 +29,7 @@ function App()
         <Routes>
           <Route path="/" exact element={<HomePage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/humour" exact element={<HomePage />} />
+          <Route path="/humour" exact element={<HumourPage />} />
           <Route path="/humour/riddles" element={<HomePage />} />
           <Route path="/humour/knockknock" element={<HomePage />} />
           <Route path="/humour/truelies" element={<HomePage />} />
