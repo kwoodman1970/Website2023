@@ -21,14 +21,14 @@ function RiddlesPage()
       <p>
         Why did the chicken cross the road?<br />
         There are several possible reasons:<br />
-
-        <ul>
-          <li>To get to the other side.</li>
-          <li>For her own foul purposes.</li>
-          <li>Colonel Sanders was chasing her with a cleaver.</li>
-          <li>To prove to the gophers that it <i>can</i> be done.</li>
-        </ul>
       </p>
+
+      <ul>
+        <li>To get to the other side.</li>
+        <li>For her own foul purposes.</li>
+        <li>Colonel Sanders was chasing her with a cleaver.</li>
+        <li>To prove to the gophers that it <i>can</i> be done.</li>
+      </ul>
 
       <hr />
 

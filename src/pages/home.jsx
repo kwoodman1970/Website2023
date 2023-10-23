@@ -1,9 +1,39 @@
-import { Fragment } from "react"
+import {Fragment} from "react"
+
+import {Zoom} from "react-slideshow-image";
+
+import "react-slideshow-image/dist/styles.css";
+
+
+const slideImages = ["./slides/closeup.jpg",
+                     "./slides/readingmenu.jpg",
+                     "./slides/vallartazipline.jpg",
+                     "./slides/formaldining.jpg",
+                     "./slides/pawsitivepetstarz.jpg",
+                     "./slides/yukon.jpg",
+                     "./slides/sailing2.jpg",
+                     "./slides/dunnsriverfalls1.jpg",
+                     "./slides/dunnsriverfalls2.jpg",
+                     "./slides/harrisonhotsprings.jpg",
+                     "./slides/relaxing1.jpg",
+                     "./slides/relaxing2.jpg",
+                     "./slides/relaxing3.jpg",
+                     "./slides/yachting.jpg"];
+
 
 function HomePage()
 {
   return (
     <Fragment>
+      <div className="slide-container">
+        <Zoom scale={0.4} indicators={() => <span className="indicator">O</span>}>
+          {
+            slideImages.map((filename, index) => <img key={index} style={{width:  "640px"}} src={filename} />)
+          }
+        </Zoom>
+      </div>
+
+
       <p>
         The past few months have been some of the most challenging&nbsp;&ndash; and most
         valuable&nbsp;&ndash; for me in recent years.  I&apos;ve taken time to do some much-needed

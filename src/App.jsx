@@ -30,11 +30,6 @@ function App()
           <Route path="/" exact element={<HomePage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/humour" exact element={<HumourPage />} />
-          <Route path="/humour/riddles" element={<HomePage />} />
-          <Route path="/humour/knockknock" element={<HomePage />} />
-          <Route path="/humour/truelies" element={<HomePage />} />
-          <Route path="/humour/computing" element={<HomePage />} />
-          <Route path="/humour/quoteserver" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
