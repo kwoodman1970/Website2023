@@ -1,40 +1,70 @@
-import { Fragment } from "react"
+import { Fragment, useState } from "react"
+
+const websites = [];
+
+websites.add = function(name, status, href, description)
+{
+  this.push({name, status, href, description});
+}
+
+websites.add("Our Gardens Inc. V1", "No longer in business",
+  "./websites/ourgardens/index.html",
+  "This was built before HTML 4.01 and CSS had been standardized.  It was simple, but it did "
+  + "what they wanted it to do.");
+
+websites.add("Our Gardens Inc. V2", "No longer in business",
+  "./websites/ourgardens2/index.html",
+  "An updated version that complied with the standards of the day.");
+
+websites.add("TRAIN Conference", "Ceased operating",
+  "https://kwoodman1970.github.io/TRAINConference/2007",
+  "This is one of the websites that I'm proudest of.");
+
+websites.add("St. Elizabeth Seton School", "Superceded",
+  "./websites/stelizabethseton/home.html",
+  "Someone referred this school to me to replace their old website.");
+
+websites.add("St. Sebastian Elementary School", "Superceded",
+  "./websites/stsebastian/index.html",
+  "Word started getting around, and the principal of this newly-built school asked me to "
+  + "build their first website to help them get ready for their grand opening.");
 
 function PortfolioPage()
 {
+  const [currentWebsite, setCurrentWebsite] = useState(null);
+
   return (
     <Fragment>
-      <p>
-        These are some of the websites that I&apos;ve built for others over the years.  Most of them are
-        no longer operating or have since moved on to new websites.
-      </p>
+      <section>
+        <select onChange={(event) => setCurrentWebsite(websites[event.currentTarget.value])}>
+          <option value={null}>--Select--</option>
+          {
+            websites.map((info, index) =>
+              <option key={index} value={index}>{info.name}</option>)
+          }
+        </select>
+        {
+          currentWebsite ?
+            <p>
+              Status:  {currentWebsite.status}<br />
+              {currentWebsite.description}
+            </p> :
+            <p />
+        }
+      </section>
 
-      <ul>
-        <li>
-          <a href="ourgardens/"><b>Our Gardens Inc.</b></a> (no longer in business)&nbsp;&ndash;
-          This was built before HTML 4.01 and CSS had been standardized.  It was simple, but it did
-          what they wanted it to do.
-        </li>
-        <li>
-          <a href="ourgardens2/"><b>Our Gardens Inc.</b></a> (no longer in business)&nbsp;&ndash;
-          An updated version that complied with the standards of the day.
-        </li>
-        <li>
-          <a href="http://www.trainconference.com/"><b>TRAIN Conference</b></a> (ceased
-          operating)&nbsp;&ndash; This is one of the websites that I&apos;m proudest of.
-        </li>
-        <li>
-          <a href="stelizabethseton/"><b>St. Elizabeth Seton School</b></a>&nbsp;&ndash; Someone
-          referred this school to me to replace their old website.  They have a new website, now.
-        </li>
-        <li>
-          <a href="stsebastian/"><b>St. Sebastian Elementary School</b></a>&nbsp;&ndash; Word
-          started getting around, and the principal of this newly-built school asked me build their
-          first website to help them get ready for their grand opening.  They have a new website,
-          now, too.
-        </li>
-      </ul>
-
+      <section>
+        {
+          currentWebsite ?
+            <iframe src={currentWebsite.href} title={currentWebsite.name}
+              sandbox="allow-modals allow-scripts" /> :
+            <p>
+              These are some of the websites that I&apos;ve built for others in times of yore.
+              They&apos;re all defunct now because their owners are either no longer operating
+              or have since replaced them with new websites.
+            </p>
+        }
+      </section>
     </Fragment>
   )
 }
