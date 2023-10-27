@@ -29,7 +29,7 @@ websites.add("St. Sebastian Elementary School", "Superceded",
   "Word started getting around, and the principal of this newly-built school asked me to "
   + "build their first website to help them get ready for their grand opening.");
 
-function PortfolioPage()
+function MuseumPage()
 {
   const [currentWebsite, setCurrentWebsite] = useState(null);
 
@@ -87,4 +87,4 @@ function PortfolioPage()
   )
 }
 
-export default PortfolioPage;
+export default MuseumPage;

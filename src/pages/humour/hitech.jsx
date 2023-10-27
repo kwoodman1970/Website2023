@@ -38,7 +38,7 @@ function TrueLiesPage()
         </li>
         <li>
           <b>Gallup Virus</b>&nbsp;&ndash; 60% of infected PC&apos;s will lose 38% of their
-          data 14% ofthe time (plus or minus 3.5% 19 times out of 20).
+          data 14% of the time (plus or minus 3.5% 19 times out of 20).
         </li>
         <li>
           <b>Warren Commission Virus</b>&nbsp;&ndash; keeps your files sealed for 75 years.
@@ -79,7 +79,7 @@ function TrueLiesPage()
       <ul>
         <li>
           <b>Paul Revere Anti-Virus</b>&nbsp;&ndash; warns you of an impending
-          infection&nbsp;&ndash; once if by LAN, twice if by C:.
+          infection&nbsp;&ndash; once if by LAN, twice if by C:\.
         </li>
         <li>
           <b>George W. Bush Anti-Virus</b>&nbsp;&ndash; searches your computer for viruses of
