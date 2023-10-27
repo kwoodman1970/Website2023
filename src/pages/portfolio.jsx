@@ -35,6 +35,24 @@ function PortfolioPage()
 
   return (
     <Fragment>
+      <aside>
+        <p>History of Browsers I Have Coded For:</p>
+        <p><img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" /></p>
+        <p><img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" /></p>
+        <p><img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" /></p>
+        <p><img src="throbbers/webexplorer.png" alt="Webexplorer" /></p>
+        <p><img src="throbbers/netscape480.gif" alt="Netscape Navigator 4" /></p>
+        <p><img src="throbbers/internetexplorer3.gif" alt="Internet Explorer 3-4" /></p>
+        <p>
+          <img src="throbbers/internetexplorer6me.gif" alt="Internet Explorer 5-6" />
+          <img src="throbbers/internetexplorer6xp.gif" alt="Internet Explorer 5-6" />
+        </p>
+        <p><img src="throbbers/netscape623.gif" alt="Netscape Navigator 6" /></p>
+        <p><img src="throbbers/netscape9006.gif" alt="Netscape Navigator 7-9" /></p>
+        <p><img src="throbbers/seamonkey.png" alt="Seamonkey" /></p>
+        <p><img src="throbbers/mozilla.gif" alt="Firefox" /></p>
+        <p><img src="throbbers/safari.png" alt="Safari" /></p>
+      </aside>
       <section>
         <select onChange={(event) => setCurrentWebsite(websites[event.currentTarget.value])}>
           <option value={null}>--Select--</option>
