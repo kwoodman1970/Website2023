@@ -176,10 +176,11 @@ function TrueLiesPage()
         <li>RS-232 standard</li>
         <li>Pentium 32-bit floating-point division</li>
         <li>Courteous Microsoft technical support staff</li>
-        <li>640x400 hi-resolution graphics</li>
+        <li>640x400 high-resolution graphics</li>
         <li>Bug-free software</li>
         <li>OS/2 marketing strategy</li>
         <li>Microsoft Windows 3.xx/95/98/Me multitasking</li>
+        <li>USB standard</li>
       </ul>
 
       <hr />

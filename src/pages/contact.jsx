@@ -30,15 +30,13 @@ function ContactPage()
 {
   return (
     <Fragment>
+      <h2>How to Contact Me</h2>
       <p>
-        The best way to contact me is by e-mail:
-      </p>
-
-      <p>
+        The best way to contact me is by e-mail:{" "}
         <a id="hiddenlink" href="" onClick={setHref}><HideText texts={texts} separators={separators} /></a>
       </p>
 
-      <hr style={{width: "50%"}} />
+      <hr />
 
       <p>
         You can use this form to quickly send me a message through your own e-mail program:
@@ -61,6 +59,22 @@ function ContactPage()
         <input type="submit" value="Send Now"/>
         <input type="reset" value="Start Over" />
       </form>
+
+      <hr />
+
+      <a href="https://linkedin.com/in/woodmankevin">
+        <figure>
+          <img src="linkedin_qr.svg" />
+          <figcaption><img src="LI-Logo.png" /></figcaption>
+        </figure>
+      </a>
+
+      <a href="https://github.com/kwoodman1970">
+        <figure>
+          <img src="github_qr.svg" />
+          <figcaption><img src="GitHub_Logo.png" /></figcaption>
+        </figure>
+      </a>
     </Fragment>)
 }
 

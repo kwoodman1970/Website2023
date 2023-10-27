@@ -12,6 +12,8 @@ function HumourPage()
 {
   return (
     <Fragment>
+      <h2>My (Admittedly Dated) Humour Collection</h2>
+
       <Tabs>
         <TabList>
           <Tab>Riddles</Tab>

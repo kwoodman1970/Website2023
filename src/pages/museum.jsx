@@ -35,6 +35,7 @@ function MuseumPage()
 
   return (
     <Fragment>
+      <h2>My Website Museum</h2>
       <aside>
         <p>History of Browsers I Have Coded For:</p>
         <p><img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" /></p>
@@ -76,11 +77,20 @@ function MuseumPage()
           currentWebsite ?
             <iframe src={currentWebsite.href} title={currentWebsite.name}
               sandbox="allow-modals allow-scripts" /> :
-            <p>
-              These are some of the websites that I&apos;ve built for others in times of yore.
-              They&apos;re all defunct now because their owners are either no longer operating
-              or have since replaced them with new websites.
-            </p>
+            <>
+              <p>
+                These are some of the websites that I&apos;ve built for others in times of yore.
+                They&apos;re all defunct now because their owners are either no longer operating
+                or have since replaced them with new websites.
+              </p>
+
+              <p>
+                I don&apos;t believe that they&apos;re worth including in my online
+                repositories because they&apos;re so archaic by today&apos;s standards and have
+                little value to the outside world, but I will let them live on here as a
+                testament to my longevity.
+              </p>
+            </>
         }
       </section>
     </Fragment>
