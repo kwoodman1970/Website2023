@@ -56,48 +56,45 @@ function MuseumPage()
         <p><img src="throbbers/safari.png" alt="Safari" /></p>
       </aside>
 
-      <div>
+      <section id="Selector">
         <h2>My Website Museum</h2>
-        <section>
-          <select onChange={(event) => setCurrentWebsite(websites[event.currentTarget.value])}>
-            <option value={null}>--Select--</option>
-            {
-              websites.map((info, index) =>
-                <option key={index} value={index}>{info.name}</option>)
-            }
-          </select>
+
+        <select onChange={(event) => setCurrentWebsite(websites[event.currentTarget.value])}>
+          <option value={null}>--Select--</option>
           {
-            currentWebsite ?
+            websites.map((info, index) =>
+              <option key={index} value={index}>{info.name}</option>)
+          }
+        </select>
+        {
+          currentWebsite && <>&nbsp;Status:  {currentWebsite.status}</>
+        }
+      </section>
+
+      <section id="View">
+        {
+          currentWebsite ?
+            <iframe src={currentWebsite.href} title={currentWebsite.name}
+              sandbox="allow-modals allow-scripts" /> :
+            <>
               <p>
-                Status:  {currentWebsite.status}<br />
-                {currentWebsite.description}
-              </p> :
-              <p />
-          }
-        </section>
+                These are some of the websites that I&apos;ve built for others in times of
+                yore.  They&apos;re all defunct now because their owners are either no longer
+                operating or have since replaced them with new websites.
+              </p>
 
-        <section>
-          {
-            currentWebsite ?
-              <iframe src={currentWebsite.href} title={currentWebsite.name}
-                sandbox="allow-modals allow-scripts" /> :
-              <>
-                <p>
-                  These are some of the websites that I&apos;ve built for others in times of yore.
-                  They&apos;re all defunct now because their owners are either no longer operating
-                  or have since replaced them with new websites.
-                </p>
+              <p>
+                Most of them aren&apos;t worth including in my online portfolio because
+                they&apos;re so archaic by today&apos;s standards and have little value to the
+                outside world, but I will let them live on here as a testament to my longevity.
+              </p>
+            </>
+        }
+      </section>
 
-                <p>
-                  I don&apos;t believe that they&apos;re worth including in my online
-                  repositories because they&apos;re so archaic by today&apos;s standards and have
-                  little value to the outside world, but I will let them live on here as a
-                  testament to my longevity.
-                </p>
-              </>
-          }
-        </section>
-      </div>
+      <footer>
+        {currentWebsite?.description}
+      </footer>
     </Fragment>
   )
 }

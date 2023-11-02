@@ -1,8 +1,9 @@
-/* body
+aside, footer, section
 {
-  padding-right: 120px;
-  background-color: blue;
-} */
+  margin:  0px;
+  border-width: 0px;
+  padding:  2px;
+}
 
 aside
 {
@@ -15,16 +16,37 @@ aside
   text-align: center;
 }
 
-aside ~ div
+section#Selector
 {
-  width:  100%;
-  height:  100%;
-  /* padding-right: 120px; */
-  background-color: blue;
+  position:  fixed;
+  top:  200px;
+  right:  120px;
+  left:  0px;
+  height:  100px;
+  overflow: hidden auto;
+}
+
+section#View
+{
+  position: fixed;
+  top:  300px;
+  right:  120px;
+  bottom:  50px;
+  left:  0px;
+}
+
+footer
+{
+  position:  fixed;
+  right:  120px;
+  bottom:  0px;
+  left:  0px;
+  height:  50px;
+  overflow: hidden auto;
 }
 
 iframe
 {
-  width:  100%;
-  height:  100%;
+  width:  calc(100% - 4px);
+  height:  calc(100% - 4px);
 }

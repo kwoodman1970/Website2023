@@ -15,21 +15,21 @@ function App()
 
   return (
     <BrowserRouter>
+      <header>
+        <h1>Kevin Woodman</h1>
+
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/portfolio">Online Portfolio</Link></li>
+            <li><Link to="/museum">Website Museum</Link></li>
+            <li><Link to="/humour">Humour</Link></li>
+            <li><Link to="/contact">Contact Me</Link></li>
+          </ul>
+        </nav>
+      </header>
+
       <main>
-        <header>
-          <h1>Kevin Woodman</h1>
-
-          <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/portfolio">Online Portfolio</Link></li>
-              <li><Link to="/museum">Website Museum</Link></li>
-              <li><Link to="/humour">Humour</Link></li>
-              <li><Link to="/contact">Contact Me</Link></li>
-            </ul>
-          </nav>
-        </header>
-
         <Routes>
           <Route path="/" exact element={<HomePage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
