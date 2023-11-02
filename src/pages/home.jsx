@@ -4,6 +4,7 @@ import {Zoom} from "react-slideshow-image";
 
 import "react-slideshow-image/dist/styles.css";
 
+import "./home.css";
 
 const slideImages = ["./slides/closeup.jpg",
                      "./slides/readingmenu.jpg",
@@ -25,12 +26,16 @@ function HomePage()
 {
   return (
     <Fragment>
-      <div className="slide-container">
-        <Zoom scale={0.4} indicators={() => <span className="indicator">O</span>}>
-          {
-            slideImages.map((filename, index) => <img key={index} style={{width:  "640px"}} src={filename} />)
-          }
-        </Zoom>
+      <div id="SlideShow">
+        <div>
+          <Zoom scale={0.4} indicators={() => <span className="indicator">O</span>}
+            arrows={false} cssClass="slide-container">
+            {
+              slideImages.map((filename, index) => <img key={index}
+                style={{width:  "640px", height:  "480px"}} src={filename} />)
+            }
+          </Zoom>
+        </div>
       </div>
 
 
