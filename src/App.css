@@ -1,42 +1,60 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root
+{
+  --background-colour:   #000000;
+  --primary-colour:      #FF00FF;
+  --secondary-colour-1:  #800080;
+  --secondary-colour-2:  #008000;
+  --text-colour:         #FFFFFF;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body
+{
+  background:        fixed;
+  background-color:  var(--background-colour);
+  background-image:  url(./kw.svg);
+  color:             var(--text-colour);
+  padding:  200px 2px 2px 2px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header
+{
+  position:  fixed;
+  top:  0px;
+  left:  0px;
+  right:  0px;
+  height:  200px;
+  background-color:  var(--background-colour);
+  background-image:  url(./kw.svg);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+header nav
+{
+  float:  right;
 }
 
-.card {
-  padding: 2em;
+header nav ul
+{
+  list-style-type:  none;
 }
 
-.read-the-docs {
-  color: #888;
+header nav ul li
+{
+  display:  inline-block;
+}
+
+header nav ul li a
+{
+  margin:  4px;
+  border-width:  4px;
+  border-style: solid hidden solid hidden;
+  border-color:  var(--secondary-colour-1);
+  padding:  4px 8px 4px 8px;
+}
+
+header nav ul li a:hover
+{
+  border-width:  6px;
+  border-style: double;
+  padding:  2px;
+  color: var(--secondary-colour-2);
 }
