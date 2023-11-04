@@ -2,9 +2,11 @@ import { Fragment } from "react"
 
 import HideText from "../components/HideText";
 
+import "./contact.css";
+
 const texts      = ["kwoodman", "telusplanet", "net"];
 const separators = "@.";
-const protocol   = "mailto:";
+const protocol   = "mailto";
 
 let link = "";
 
@@ -18,12 +20,12 @@ for (let i = 0; i < texts.length; i++)
 
 function setHref(e)
 {
-  e.currentTarget.href = protocol + link;
+  e.currentTarget.href = protocol + ":" + link;
 }
 
 function setAction(e)
 {
-  e.currentTarget.action = protocol + link + "?subject=Message from the Website";
+  e.currentTarget.action = protocol + ":" + link + "?subject=Message from the Website";
 }
 
 function ContactPage()
@@ -38,41 +40,43 @@ function ContactPage()
 
       <hr />
 
-      <p>
-        You can use this form to quickly send me a message through your own e-mail program:
-      </p>
+      <section style={{display:  "inline-block"}}>
+        <p>
+          You can use this form to quickly send me a message through your own e-mail program:
+        </p>
 
-      <form method="post" action="" encType="text/plain" onSubmit={setAction}>
-        <table>
-          <tbody>
-            <tr>
-              <td>Your name is:</td>
-              <td><input name="RealName" type="text" size="40" /></td>
-            </tr>
-            <tr>
-              <td>Your message is:</td>
-              <td><textarea name="Message" wrap="soft" rows="12" cols="40" /></td>
-            </tr>
-          </tbody>
-        </table>
+        <form method="post" action="" encType="text/plain" onSubmit={setAction}>
+          <table>
+            <tbody>
+              <tr>
+                <td>Your name is:</td>
+                <td><input name="RealName" type="text" size="40" /></td>
+              </tr>
+              <tr>
+                <td>Your message is:</td>
+                <td><textarea name="Message" wrap="soft" rows="12" cols="40" /></td>
+              </tr>
+            </tbody>
+          </table>
 
-        <input type="submit" value="Send Now"/>
-        <input type="reset" value="Start Over" />
-      </form>
+          <input type="submit" value="Send Now"/>
+          <input type="reset" value="Start Over" />
+        </form>
+      </section>
 
-      <hr />
-
-      <a href="https://linkedin.com/in/woodmankevin">
+      <a className="QR" href="https://linkedin.com/in/woodmankevin">
         <figure>
           <img src="linkedin_qr.svg" />
-          <figcaption><img src="LI-Logo.png" /></figcaption>
+          <figcaption>
+            <img id="LinkedIn_Logo" src="LI-Logo.png" alt="LinkedIn" />
+          </figcaption>
         </figure>
       </a>
 
-      <a href="https://github.com/kwoodman1970">
+      <a className="QR" href="https://github.com/kwoodman1970">
         <figure>
           <img src="github_qr.svg" />
-          <figcaption><img src="GitHub_Logo.png" /></figcaption>
+          <figcaption><img src="GitHub_Logo.png" alt="GitHub" /></figcaption>
         </figure>
       </a>
     </Fragment>)
