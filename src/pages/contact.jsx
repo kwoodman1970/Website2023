@@ -32,53 +32,58 @@ function ContactPage()
 {
   return (
     <Fragment>
-      <h2>How to Contact Me</h2>
-      <p>
-        The best way to contact me is by e-mail:{" "}
-        <a id="hiddenlink" href="" onClick={setHref}><HideText texts={texts} separators={separators} /></a>
-      </p>
-
-      <hr />
-
-      <section style={{display:  "inline-block"}}>
+      <main>
+        <h2>How to Contact Me</h2>
         <p>
-          You can use this form to quickly send me a message through your own e-mail program:
+          The best way to contact me is by e-mail:{"  "}
+          <a id="hiddenlink" href="" onClick={setHref}>
+            <HideText texts={texts} separators={separators} />
+          </a>
         </p>
 
-        <form method="post" action="" encType="text/plain" onSubmit={setAction}>
-          <table>
-            <tbody>
-              <tr>
-                <td>Your name is:</td>
-                <td><input name="RealName" type="text" size="40" /></td>
-              </tr>
-              <tr>
-                <td>Your message is:</td>
-                <td><textarea name="Message" wrap="soft" rows="12" cols="40" /></td>
-              </tr>
-            </tbody>
-          </table>
+        <hr />
 
-          <input type="submit" value="Send Now"/>
-          <input type="reset" value="Start Over" />
-        </form>
-      </section>
+        <section style={{display:  "inline-block"}}>
+          <p>
+            You can use this form to quickly send me a message through your own e-mail
+            program:
+          </p>
 
-      <a className="QR" href="https://linkedin.com/in/woodmankevin">
-        <figure>
-          <img src="linkedin_qr.svg" />
-          <figcaption>
-            <img id="LinkedIn_Logo" src="LI-Logo.png" alt="LinkedIn" />
-          </figcaption>
-        </figure>
-      </a>
+          <form method="post" action="" encType="text/plain" onSubmit={setAction}>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Your name is:</td>
+                  <td><input name="RealName" type="text" size="40" /></td>
+                </tr>
+                <tr>
+                  <td>Your message is:</td>
+                  <td><textarea name="Message" wrap="soft" rows="12" cols="40" /></td>
+                </tr>
+              </tbody>
+            </table>
 
-      <a className="QR" href="https://github.com/kwoodman1970">
-        <figure>
-          <img src="github_qr.svg" />
-          <figcaption><img src="GitHub_Logo.png" alt="GitHub" /></figcaption>
-        </figure>
-      </a>
+            <input type="submit" value="Send Now"/>
+            <input type="reset" value="Start Over" />
+          </form>
+        </section>
+
+        <a className="QR" href="https://linkedin.com/in/woodmankevin">
+          <figure>
+            <img src="linkedin_qr.svg" />
+            <figcaption>
+              <img id="LinkedIn_Logo" src="LI-Logo.png" alt="LinkedIn" />
+            </figcaption>
+          </figure>
+        </a>
+
+        <a className="QR" href="https://github.com/kwoodman1970">
+          <figure>
+            <img src="github_qr.svg" />
+            <figcaption><img src="GitHub_Logo.png" alt="GitHub" /></figcaption>
+          </figure>
+        </a>
+      </main>
     </Fragment>)
 }
 

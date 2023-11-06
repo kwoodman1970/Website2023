@@ -37,64 +37,68 @@ function MuseumPage()
 
   return (
     <Fragment>
-      <aside>
-        <p>History of Browsers I Have Coded For:</p>
-        <p><img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" /></p>
-        <p><img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" /></p>
-        <p><img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" /></p>
-        <p><img src="throbbers/webexplorer.png" alt="Webexplorer" /></p>
-        <p><img src="throbbers/netscape480.gif" alt="Netscape Navigator 4" /></p>
-        <p><img src="throbbers/internetexplorer3.gif" alt="Internet Explorer 3-4" /></p>
-        <p>
-          <img src="throbbers/internetexplorer6me.gif" alt="Internet Explorer 5-6" />
-          <img src="throbbers/internetexplorer6xp.gif" alt="Internet Explorer 5-6" />
-        </p>
-        <p><img src="throbbers/netscape623.gif" alt="Netscape Navigator 6" /></p>
-        <p><img src="throbbers/netscape9006.gif" alt="Netscape Navigator 7-9" /></p>
-        <p><img src="throbbers/seamonkey.png" alt="Seamonkey" /></p>
-        <p><img src="throbbers/mozilla.gif" alt="Firefox" /></p>
-        <p><img src="throbbers/safari.png" alt="Safari" /></p>
-      </aside>
+      <main>
+        <aside>
+          <p>History of Browsers I Have Coded For:</p>
+          <p><img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" /></p>
+          <p><img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" /></p>
+          <p><img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" /></p>
+          <p><img src="throbbers/webexplorer.png" alt="Webexplorer" /></p>
+          <p><img src="throbbers/netscape480.gif" alt="Netscape Navigator 4" /></p>
+          <p><img src="throbbers/internetexplorer3.gif" alt="Internet Explorer 3-4" /></p>
+          <p>
+            <img src="throbbers/internetexplorer6me.gif" alt="Internet Explorer 5-6" />
+            <img src="throbbers/internetexplorer6xp.gif" alt="Internet Explorer 5-6" />
+          </p>
+          <p><img src="throbbers/netscape623.gif" alt="Netscape Navigator 6" /></p>
+          <p><img src="throbbers/netscape9006.gif" alt="Netscape Navigator 7-9" /></p>
+          <p><img src="throbbers/seamonkey.png" alt="Seamonkey" /></p>
+          <p><img src="throbbers/mozilla.gif" alt="Firefox" /></p>
+          <p><img src="throbbers/safari.png" alt="Safari" /></p>
+        </aside>
 
-      <section id="Selector">
-        <h2>My Website Museum</h2>
+        <section id="Selector">
+          <h2>My Website Museum</h2>
 
-        <select onChange={(event) => setCurrentWebsite(websites[event.currentTarget.value])}>
-          <option value={null}>--Select--</option>
+          <select
+            onChange={(event) => setCurrentWebsite(websites[event.currentTarget.value])}>
+            <option value={null}>--Select--</option>
+            {
+              websites.map((info, index) =>
+                <option key={index} value={index}>{info.name}</option>)
+            }
+          </select>
           {
-            websites.map((info, index) =>
-              <option key={index} value={index}>{info.name}</option>)
+            currentWebsite && <>&nbsp;Status:  {currentWebsite.status}</>
           }
-        </select>
-        {
-          currentWebsite && <>&nbsp;Status:  {currentWebsite.status}</>
-        }
-      </section>
+        </section>
 
-      <section id="View">
-        {
-          currentWebsite ?
-            <iframe src={currentWebsite.href} title={currentWebsite.name}
-              sandbox="allow-modals allow-scripts" /> :
-            <>
-              <p>
-                These are some of the websites that I&apos;ve built for others in times of
-                yore.  They&apos;re all defunct now because their owners are either no longer
-                operating or have since replaced them with new websites.
-              </p>
+        <section id="View">
+          {
+            currentWebsite ?
+              <iframe src={currentWebsite.href} title={currentWebsite.name}
+                sandbox="allow-modals allow-scripts" /> :
+              <>
+                <p>
+                  These are some of the websites that I&apos;ve built for others in times of
+                  yore.  They&apos;re all defunct now because their owners are either no
+                  longer operating or have since replaced them with new websites.
+                </p>
 
-              <p>
-                Most of them aren&apos;t worth including in my online portfolio because
-                they&apos;re so archaic by today&apos;s standards and have little value to the
-                outside world, but I will let them live on here as a testament to my longevity.
-              </p>
-            </>
-        }
-      </section>
+                <p>
+                  Most of them aren&apos;t worth including in my online portfolio because
+                  they&apos;re so archaic by today&apos;s standards and have little value to
+                  the outside world, but I will let them live on here as a testament to my
+                  longevity.
+                </p>
+              </>
+          }
+        </section>
 
-      <footer>
-        {currentWebsite?.description}
-      </footer>
+        <footer>
+          {currentWebsite?.description}
+        </footer>
+      </main>
     </Fragment>
   )
 }
