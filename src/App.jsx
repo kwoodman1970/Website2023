@@ -29,15 +29,13 @@ function App()
         </nav>
       </header>
 
-      <main>
-        <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/museum" element={<MuseumPage />} />
-          <Route path="/humour" exact element={<HumourPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/museum" element={<MuseumPage />} />
+        <Route path="/humour" exact element={<HumourPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
     </BrowserRouter>
   )
 }
