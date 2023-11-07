@@ -1,19 +1,8 @@
-aside, footer, section
+footer, section
 {
   margin:  0px;
   border-width: 0px;
   padding:  2px;
-}
-
-aside
-{
-  position: fixed;
-  top:  200px;
-  right:  0px;
-  bottom:  0px;
-  width:  120px;
-  overflow: hidden scroll;
-  text-align: center;
 }
 
 section#Selector
@@ -30,7 +19,7 @@ section#View
 {
   position: fixed;
   top:  300px;
-  right:  120px;
+  right:  0px;
   bottom:  50px;
   left:  0px;
 }

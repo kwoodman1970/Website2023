@@ -38,25 +38,6 @@ function MuseumPage()
   return (
     <Fragment>
       <main>
-        <aside>
-          <p>History of Browsers I Have Coded For:</p>
-          <p><img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" /></p>
-          <p><img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" /></p>
-          <p><img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" /></p>
-          <p><img src="throbbers/webexplorer.png" alt="Webexplorer" /></p>
-          <p><img src="throbbers/netscape480.gif" alt="Netscape Navigator 4" /></p>
-          <p><img src="throbbers/internetexplorer3.gif" alt="Internet Explorer 3-4" /></p>
-          <p>
-            <img src="throbbers/internetexplorer6me.gif" alt="Internet Explorer 5-6" />
-            <img src="throbbers/internetexplorer6xp.gif" alt="Internet Explorer 5-6" />
-          </p>
-          <p><img src="throbbers/netscape623.gif" alt="Netscape Navigator 6" /></p>
-          <p><img src="throbbers/netscape9006.gif" alt="Netscape Navigator 7-9" /></p>
-          <p><img src="throbbers/seamonkey.png" alt="Seamonkey" /></p>
-          <p><img src="throbbers/mozilla.gif" alt="Firefox" /></p>
-          <p><img src="throbbers/safari.png" alt="Safari" /></p>
-        </aside>
-
         <section id="Selector">
           <h2>My Website Museum</h2>
 
@@ -90,6 +71,28 @@ function MuseumPage()
                   they&apos;re so archaic by today&apos;s standards and have little value to
                   the outside world, but I will let them live on here as a testament to my
                   longevity.
+                </p>
+
+                <h3>
+                  Browsers I Have Coded For
+                </h3>
+
+                <p style={{display:  "flex", textAlign:  "justify-all", alignItems:  "center", backgroundColor:  "magenta"}}>
+                  <img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" />
+                  <img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" />
+                  <img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" />
+                  <img src="throbbers/webexplorer.png" alt="Webexplorer" />
+                  <img src="throbbers/netscape480.gif" alt="Netscape Navigator 4" />
+                  <img src="throbbers/internetexplorer3.gif" alt="Internet Explorer 3-4" />
+                  <span style={{display:  "inline-block"}}>
+                    <img src="throbbers/internetexplorer6me.gif" alt="Internet Explorer 5-6" /><br />
+                    <img src="throbbers/internetexplorer6xp.gif" alt="Internet Explorer 5-6" />
+                  </span>
+                  <img src="throbbers/netscape623.gif" alt="Netscape Navigator 6" />
+                  <img src="throbbers/netscape9006.gif" alt="Netscape Navigator 7-9" />
+                  <img src="throbbers/seamonkey.png" alt="Seamonkey" />
+                  <img src="throbbers/mozilla.gif" alt="Firefox" />
+                  <img src="throbbers/safari.png" alt="Safari" />
                 </p>
               </>
           }
