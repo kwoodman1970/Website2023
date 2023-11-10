@@ -1,41 +1,85 @@
-footer, section
+/*
+Layout Elements
+
+Make sure that these align with the layout elements in ../index.css.
+*/
+
+main#Museum
+{
+  position:  fixed;
+  top:       75px;
+  right:     0px;
+  bottom:    50px;
+  left:      0px;
+}
+
+main#Museum section, main#Museum + footer
 {
   margin:  0px;
   border-width: 0px;
-  padding:  2px;
 }
 
-section#Selector
+main#Museum section#Selector
 {
-  position:  fixed;
-  top:  200px;
-  right:  120px;
-  left:  0px;
-  height:  100px;
+  height:  125px;
   overflow: hidden auto;
 }
 
-section#View
+main#Museum section#View
 {
   position: fixed;
-  top:  300px;
+  top:  200px;
   right:  0px;
   bottom:  50px;
   left:  0px;
 }
 
-footer
+main#Museum iframe
+{
+  width:  calc(100% - 8px);
+  height:  calc(100% - 8px);
+}
+
+main#Museum + footer
 {
   position:  fixed;
-  right:  120px;
+  right:  0px;
   bottom:  0px;
   left:  0px;
   height:  50px;
   overflow: hidden auto;
 }
 
-iframe
+/* Content Elements */
+
+/* main#Museum p#BrowserThrobbers
 {
-  width:  calc(100% - 4px);
-  height:  calc(100% - 4px);
+  display:  grid;
+  grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-items:  center;
+  align-items:  center;
+} */
+
+/* main#Museum p#BrowserThrobbers
+{
+  display:  flex;
+  justify-content:  space-between;
+  vertical-align:  middle;
+} */
+
+main#Museum p#BrowserThrobbers
+{
+  text-align: justify;
+  text-align-last: justify;
+  /* -ms-text-justify: distribute-all-lines;
+  -moz-text-justify: distribute-all-lines; */
+  text-justify: inter-word;
+}
+
+main#Museum p#BrowserThrobbers > *
+{
+  display:  inline-block;
+  margin-left:  2%;
+  margin-right:  2%;
+  vertical-align:  middle;
 }

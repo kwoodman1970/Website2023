@@ -1,32 +1,6 @@
-:root
+header h1
 {
-  --background-colour:   #000000;
-  --primary-colour:      #FF00FF;
-  --secondary-colour-1:  #800080;
-  --secondary-colour-2:  #008000;
-  --text-colour:         #FFFFFF;
-}
-
-body
-{
-  background:        fixed;
-  background-color:  var(--background-colour);
-  background-image:  url(./kw.svg);
-  color:             var(--text-colour);
-  border:  hidden;
-  padding:  200px 0px 0px;
-}
-
-header
-{
-  position:  fixed;
-  top:  0px;
-  left:  0px;
-  right:  0px;
-  height:  200px;
-  z-index: 2;
-  background-color:  var(--background-colour);
-  background-image:  url(./kw.svg);
+  display:  inline;
 }
 
 header nav

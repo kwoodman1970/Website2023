@@ -37,7 +37,7 @@ function MuseumPage()
 
   return (
     <Fragment>
-      <main>
+      <main id="Museum">
         <section id="Selector">
           <h2>My Website Museum</h2>
 
@@ -77,31 +77,31 @@ function MuseumPage()
                   Browsers I Have Coded For
                 </h3>
 
-                <p style={{display:  "flex", textAlign:  "justify-all", alignItems:  "center", backgroundColor:  "magenta"}}>
-                  <img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" />
-                  <img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" />
-                  <img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" />
-                  <img src="throbbers/webexplorer.png" alt="Webexplorer" />
-                  <img src="throbbers/netscape480.gif" alt="Netscape Navigator 4" />
-                  <img src="throbbers/internetexplorer3.gif" alt="Internet Explorer 3-4" />
-                  <span style={{display:  "inline-block"}}>
+                <p id="BrowserThrobbers">
+                  <img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" />{" "}
+                  <img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" />{" "}
+                  <img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" />{" "}
+                  <img src="throbbers/webexplorer.png" alt="Webexplorer" />{" "}
+                  <img src="throbbers/netscape480.gif" alt="Netscape Navigator 4" />{" "}
+                  <img src="throbbers/internetexplorer3.gif" alt="Internet Explorer 3-4" />{" "}
+                  <span>
                     <img src="throbbers/internetexplorer6me.gif" alt="Internet Explorer 5-6" /><br />
                     <img src="throbbers/internetexplorer6xp.gif" alt="Internet Explorer 5-6" />
-                  </span>
-                  <img src="throbbers/netscape623.gif" alt="Netscape Navigator 6" />
-                  <img src="throbbers/netscape9006.gif" alt="Netscape Navigator 7-9" />
-                  <img src="throbbers/seamonkey.png" alt="Seamonkey" />
-                  <img src="throbbers/mozilla.gif" alt="Firefox" />
+                  </span>{" "}
+                  <img src="throbbers/netscape623.gif" alt="Netscape Navigator 6" />{" "}
+                  <img src="throbbers/netscape9006.gif" alt="Netscape Navigator 7-9" />{" "}
+                  <img src="throbbers/seamonkey.png" alt="Seamonkey" />{" "}
+                  <img src="throbbers/mozilla.gif" alt="Firefox" />{" "}
                   <img src="throbbers/safari.png" alt="Safari" />
                 </p>
               </>
           }
         </section>
-
-        <footer>
-          {currentWebsite?.description}
-        </footer>
       </main>
+
+      <footer>
+        {currentWebsite?.description}
+      </footer>
     </Fragment>
   )
 }
