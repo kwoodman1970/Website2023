@@ -58,7 +58,7 @@ function MuseumPage()
           {
             currentWebsite ?
               <iframe src={currentWebsite.href} title={currentWebsite.name}
-                sandbox="allow-modals allow-scripts" /> :
+                sandbox="allow-popups allow-scripts" /> :
               <>
                 <p>
                   These are some of the websites that I&apos;ve built for others in times of

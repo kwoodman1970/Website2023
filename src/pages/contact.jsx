@@ -68,19 +68,24 @@ function ContactPage()
           </form>
         </section>
 
-        <a className="QR" href="https://linkedin.com/in/woodmankevin">
+        <a className="QR" href="https://linkedin.com/in/woodmankevin/">
           <figure>
-            <img src="linkedin_qr.svg" />
-            <figcaption>
-              <img id="LinkedIn_Logo" src="LI-Logo.png" alt="LinkedIn" />
+            <img src="linkedin_qr.svg" alt="LinkedIn QR Code" />
+            <figcaption style={{gridTemplateColumns:  "112px auto"}}>
+              <img src="LinkedIn_Logo.svg" alt="LinkedIn Profile" />
+              <p  style={{margin:  "auto 19px auto 0px", textAlign:  "center"}} >
+                View My LinkedIn<sup>&reg;</sup> Profile
+              </p>
             </figcaption>
           </figure>
         </a>
 
-        <a className="QR" href="https://github.com/kwoodman1970">
+        <a className="QR" href="https://github.com/kwoodman1970/">
           <figure>
-            <img src="github_qr.svg" />
-            <figcaption><img src="GitHub_Logo.png" alt="GitHub" /></figcaption>
+            <img src="github_qr.svg" alt="GitHub QR Code" />
+            <figcaption style={{gridTemplateColumns:  "auto", }}>
+              <img src="GitHub_Logo.svg" alt="GitHub Portfolio" />
+            </figcaption>
           </figure>
         </a>
       </main>

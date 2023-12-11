@@ -6,10 +6,24 @@ a.QR
   padding:  0px;
   width:  200px;
   background-color: white;
+  color:  black;
+  font-size:  13px;
+  font-weight:  bold;
+}
+
+a.QR:hover
+{
+  color:  black
+}
+
+a.QR:visited
+{
+  color:  black
 }
 
 a.QR > figure, a.QR > figure > figcaption
 {
+  display:  grid;
   margin:  0px;
   border: 0px;
   padding:  0px;
@@ -29,26 +43,6 @@ a.QR > figure > figcaption img
   margin:  0px;
   border: 0px;
   padding:  0px;
-  width:  200px;
-  height:  auto;
-}
-
-img#LinkedIn_Logo
-{
-  /*
-  LinkedIn's branding guidelines state that the minimum screen height is 21px and the
-  clearspace around the logo must be twice the width of the letter "i".  The image file for the
-  full logo that LinkedIn supplies is 2212px x 540px and the letter "i" is 80px wide.
-
-  The minimum image size is therefore 86px x 21px.
-
-  With no scaling, the margin must be 160px for a total element box size of 2532px x 860px.
-  Therefore, the margin takes up 6.32% and the image itself takes up 87.36% of of the total CSS
-  box model width.
-  */
-
-  min-width:   86px;
-  min-height:  21px;
-  margin:       6.32%;
-  width:       87.36%;
+  width:  auto;
+  height:  100px;
 }
