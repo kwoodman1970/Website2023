@@ -1,4 +1,21 @@
-a.QR
+#Methods
+{
+  display:  grid;
+  grid-template-columns:  1fr 1fr;
+}
+
+#Methods section
+{
+  display:  inline-block;
+}
+
+#Links
+{
+  display:  grid;
+  grid-template-columns:  220px 220px 1fr;
+}
+
+#Links a
 {
   display: inline-block;
   margin:  4px;
@@ -11,25 +28,26 @@ a.QR
   font-weight:  bold;
 }
 
-a.QR:hover
+#Links a:hover
 {
   color:  black
 }
 
-a.QR:visited
+#Links a:visited
 {
   color:  black
 }
 
-a.QR > figure, a.QR > figure > figcaption
+#Links a > figure, #Links a > figure > figcaption
 {
   display:  grid;
+  grid-template-columns:  1fr;
   margin:  0px;
   border: 0px;
   padding:  0px;
 }
 
-a.QR > figure > img
+#Links a > figure > img
 {
   margin:  0px;
   border: 0px;
@@ -38,7 +56,7 @@ a.QR > figure > img
   height:  200px;
 }
 
-a.QR > figure > figcaption img
+#Links a > figure > figcaption img
 {
   margin:  0px;
   border: 0px;
