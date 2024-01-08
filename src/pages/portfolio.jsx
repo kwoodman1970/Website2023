@@ -2,8 +2,20 @@ import { Fragment } from "react";
 import useFetch from "react-fetch-hook";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 import "./portfolio.css";
+
+/*
+Rather than manually synchronize and/or convert the portfolio's README.md file to HTML, this
+component pulls it directly from the repository and renders it automatically.  The cost is a
+brief delay while the README.md file is fetched.
+
+If the title of the README.md file is changed then there are two places in this file that
+should be changed to match it -- one is for when the file is being fetched and the other is for
+when there's an error on the fetch.  If these texts aren't all the same then the page will have
+a jarring effect.
+*/
 
 const URLRoot   = "https://raw.githubusercontent.com/kwoodman1970/kwoodman1970/main/";
 const readmeURL = URLRoot + "README.md";
@@ -11,8 +23,10 @@ const readmeURL = URLRoot + "README.md";
 function PortfolioPage()
 {
   /*
-  There's a defect in the "useFetch" component:  if a formatter is specified and there's an
-  error then the "error" constant isn't populated.  A special error-trapping formatter function
+  HACK!
+
+  There's a defect in the "useFetch" hook:  if a formatter is specified and there's a fetch
+  error then the "error" constant isn't populated.  A special error-throwing formatter function
   is therefore required to properly detect a failed fetch operation.
 
   If that defect is ever corrected then the special formatter function will become deprecated.
@@ -20,6 +34,13 @@ function PortfolioPage()
 
   function formatter(response)
   {
+    /*
+    This function returns the fetch response's body converted to text or throws an error if the
+    request failed.
+
+    "response" is the fetch response.
+    */
+
     if (!response.ok)
     {
       const error = new Error("Fetch error");
@@ -30,7 +51,7 @@ function PortfolioPage()
       throw error;
     }
 
-    return response.text()
+    return response.text();
   }
 
   // const {isLoading, data, error} = useFetch(readmeURL, {formatter:  (res) => res.text()});
@@ -40,11 +61,12 @@ function PortfolioPage()
     return (
       <Fragment>
         <main>
+          {/* This heading text should be the same as the title in the README.md file. */}
           <h2>My Online Digital Portfolio</h2>
 
           <p>Fetching portfolio &ndash; please stand by...</p>
         </main>
-      </Fragment>)
+      </Fragment>);
   else if (error)
   {
     console.log(`Failed to fetch URL "${readmeURL}"`);
@@ -53,6 +75,7 @@ function PortfolioPage()
     return (
       <Fragment>
         <main>
+          {/* This heading text should be the same as the title in the README.md file. */}
           <h2>My Online Digital Portfolio</h2>
 
           <p>Unable to fetch portfolio.</p>
@@ -70,22 +93,32 @@ function PortfolioPage()
             powered armour and go bug-hunting.
           </p>
         </main>
-      </Fragment>)
+      </Fragment>);
   }
   else
   {
+    /*
+    The Markdown text needs a bit of pre-processing before it can be displayed.
+
+    First, the banner needs to be removed.  It's great for GitHub and LinkedIn but is out of
+    place on the website.
+
+    Second, since <h1 /> is used for the website's title, all Markdown headings need to be
+    knocked down a level.  <h6 /> headings will become mere paragraphs.
+    */
+
     let markdownText = data.replace("<img src=\".README/banner.jpg\" alt=\"Banner\">", "");
 
     markdownText = markdownText.replaceAll("###### ", "");
     markdownText = markdownText.replaceAll("# ", "## ");
 
-    markdownText = markdownText.replaceAll("<br />", "\n");
+    // markdownText = markdownText.replaceAll("<br />", "\n");
 
     return (
       <Fragment>
         <main>
           <section id="Portfolio">
-            <Markdown remarkPlugins={[remarkGfm]}>{markdownText}</Markdown>
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={rehypeRaw}>{markdownText}</Markdown>
           </section>
 
           <hr />
