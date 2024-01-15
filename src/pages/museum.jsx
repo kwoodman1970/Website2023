@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react"
+import { useState } from "react"
 
 import "./museum.css";
 
@@ -36,7 +36,7 @@ function MuseumPage()
   const [currentWebsite, setCurrentWebsite] = useState(null);
 
   return (
-    <Fragment>
+    <>
       <main id="Museum">
         <section id="Selector">
           <h2>My Website Museum</h2>
@@ -102,8 +102,8 @@ function MuseumPage()
       <footer>
         {currentWebsite?.description}
       </footer>
-    </Fragment>
-  )
+    </>
+  );
 }
 
 export default MuseumPage;

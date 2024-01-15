@@ -37,7 +37,7 @@ function App()
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App;

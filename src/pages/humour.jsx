@@ -1,4 +1,3 @@
-import { Fragment } from "react"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import RiddlesPage from "./humour/riddles"
@@ -11,34 +10,32 @@ import 'react-tabs/style/react-tabs.css';
 function HumourPage()
 {
   return (
-    <Fragment>
-      <main>
-        <h2>My (Admittedly Dated) Humour Collection</h2>
+    <main>
+      <h2>My (Admittedly Dated) Humour Collection</h2>
 
-        <Tabs>
-          <TabList>
-            <Tab>Riddles</Tab>
-            <Tab>Knock Knock!</Tab>
-            <Tab>True Lies</Tab>
-            <Tab>Hi, Tech!</Tab>
-          </TabList>
+      <Tabs>
+        <TabList>
+          <Tab>Riddles</Tab>
+          <Tab>Knock Knock!</Tab>
+          <Tab>True Lies</Tab>
+          <Tab>Hi, Tech!</Tab>
+        </TabList>
 
-          <TabPanel>
-            <RiddlesPage />
-          </TabPanel>
-          <TabPanel>
-            <KnockKnockPage />
-          </TabPanel>
-          <TabPanel>
-            <TrueLiesPage />
-          </TabPanel>
-          <TabPanel>
-            <HighTechPage />
-          </TabPanel>
-        </Tabs>
-      </main>
-    </Fragment>
-  )
+        <TabPanel>
+          <RiddlesPage />
+        </TabPanel>
+        <TabPanel>
+          <KnockKnockPage />
+        </TabPanel>
+        <TabPanel>
+          <TrueLiesPage />
+        </TabPanel>
+        <TabPanel>
+          <HighTechPage />
+        </TabPanel>
+      </Tabs>
+    </main>
+  );
 }
 
 export default HumourPage;
