@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import useFetch from "react-fetch-hook";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -59,41 +58,39 @@ function PortfolioPage()
 
   if (isLoading)
     return (
-      <Fragment>
-        <main>
-          {/* This heading text should be the same as the title in the README.md file. */}
-          <h2>My Online Digital Portfolio</h2>
+      <main>
+        {/* This heading text should be the same as the title in the README.md file. */}
+        <h2>My Online Digital Portfolio</h2>
 
-          <p>Fetching portfolio &ndash; please stand by...</p>
-        </main>
-      </Fragment>);
+        <p>Fetching portfolio &ndash; please stand by...</p>
+      </main>
+    );
   else if (error)
   {
     console.log(`Failed to fetch URL "${readmeURL}"`);
     console.log(`Response status = ${error.status}:  "${error.statusText}"`);
 
     return (
-      <Fragment>
-        <main>
-          {/* This heading text should be the same as the title in the README.md file. */}
-          <h2>My Online Digital Portfolio</h2>
+      <main>
+        {/* This heading text should be the same as the title in the README.md file. */}
+        <h2>My Online Digital Portfolio</h2>
 
-          <p>Unable to fetch portfolio.</p>
-          <p>
-            Response status:  <b>{error.status}</b><br />
-            Response message:  <b>{error.statusText}</b>
-          </p>
+        <p>Unable to fetch portfolio.</p>
+        <p>
+          Response status:  <b>{error.status}</b><br />
+          Response message:  <b>{error.statusText}</b>
+        </p>
 
-          <hr />
+        <hr />
 
-          <p>
-            Well, <i>that</i> wasn&apos;t supposed to happen.  Please accept my apologies.
-            You can have a look at
-            {" "}<a href="https://github.com/kwoodman1970">my GitHub page</a> while I don my
-            powered armour and go bug-hunting.
-          </p>
-        </main>
-      </Fragment>);
+        <p>
+          Well, <i>that</i> wasn&apos;t supposed to happen.  Please accept my apologies.
+          You can have a look at
+          {" "}<a href="https://github.com/kwoodman1970">my GitHub page</a> while I don my
+          powered armour and go bug-hunting.
+        </p>
+      </main>
+    );
   }
   else
   {
@@ -115,20 +112,18 @@ function PortfolioPage()
     // markdownText = markdownText.replaceAll("<br />", "\n");
 
     return (
-      <Fragment>
-        <main>
-          <section id="Portfolio">
-            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={rehypeRaw}>{markdownText}</Markdown>
-          </section>
+      <main>
+        <section id="Portfolio">
+          <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={rehypeRaw}>{markdownText}</Markdown>
+        </section>
 
-          <hr />
+        <hr />
 
-          <p>
-            <b>Fun Fact:</b> This website is one of the projects in my online
-            portfolio.  <i>How meta is that?</i>
-          </p>
-        </main>
-      </Fragment>
+        <p>
+          <b>Fun Fact:</b> This website is one of the projects in my online
+          portfolio.  <i>How meta is that?</i>
+        </p>
+      </main>
     );
   }
 }
