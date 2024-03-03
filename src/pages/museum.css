@@ -52,28 +52,13 @@ main#Museum + footer
 
 /* Content Elements */
 
-/* main#Museum p#BrowserThrobbers
-{
-  display:  grid;
-  grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  justify-items:  center;
-  align-items:  center;
-} */
-
-/* main#Museum p#BrowserThrobbers
-{
-  display:  flex;
-  justify-content:  space-between;
-  vertical-align:  middle;
-} */
-
 main#Museum p#BrowserThrobbers
 {
-  text-align: justify;
-  text-align-last: justify;
-  /* -ms-text-justify: distribute-all-lines;
-  -moz-text-justify: distribute-all-lines; */
-  text-justify: inter-word;
+  display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  row-gap: 64px;
+	place-items: center;
+	min-height: fit-content;
 }
 
 main#Museum p#BrowserThrobbers > *

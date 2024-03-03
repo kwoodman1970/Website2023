@@ -94,6 +94,10 @@ function MuseumPage()
                   <img src="throbbers/mozilla.gif" alt="Firefox" />{" "}
                   <img src="throbbers/safari.png" alt="Safari" />
                 </p>
+
+                <p>
+                  <i>How many do you recognize?</i>
+                </p>
               </>
           }
         </section>
