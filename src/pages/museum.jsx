@@ -81,18 +81,20 @@ function MuseumPage()
                   <img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" />{" "}
                   <img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" />{" "}
                   <img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" />{" "}
-                  <img src="throbbers/webexplorer.png" alt="Webexplorer" />{" "}
-                  <img src="throbbers/netscape480.gif" alt="Netscape Navigator 4" />{" "}
-                  <img src="throbbers/internetexplorer3.gif" alt="Internet Explorer 3-4" />{" "}
+                  <img src="throbbers/webexplorer.png" alt="IBM Webexplorer" />{" "}
+                  <img src="throbbers/netscape480.gif" alt="Netscape Communicator 4" />{" "}
+                  <img src="throbbers/internetexplorer3.gif" alt="Microsoft Internet Explorer 3-4" />{" "}
                   <span>
-                    <img src="throbbers/internetexplorer6me.gif" alt="Internet Explorer 5-6" /><br />
-                    <img src="throbbers/internetexplorer6xp.gif" alt="Internet Explorer 5-6" />
+                    <img src="throbbers/internetexplorer6me.gif" alt="Microsoft Internet Explorer 5-6" /><br />
+                    <img src="throbbers/internetexplorer6xp.gif" alt="Microsoft Internet Explorer 5-6" />
                   </span>{" "}
-                  <img src="throbbers/netscape623.gif" alt="Netscape Navigator 6" />{" "}
-                  <img src="throbbers/netscape9006.gif" alt="Netscape Navigator 7-9" />{" "}
-                  <img src="throbbers/seamonkey.png" alt="Seamonkey" />{" "}
-                  <img src="throbbers/mozilla.gif" alt="Firefox" />{" "}
-                  <img src="throbbers/safari.png" alt="Safari" />
+                  <img src="throbbers/netscape623.gif" alt="Netscape 6" />{" "}
+                  <img src="throbbers/netscape9006.gif" alt="Netscape 7-9" />{" "}
+                  <img src="throbbers/seamonkey.png" alt="SeaMonkey" />{" "}
+                  <img src="throbbers/mozilla.gif" alt="Mozilla Firefox" />{" "}
+                  <img src="throbbers/safari.png" alt="Apple Safari" />{" "}
+                  <img src="throbbers/firefox.png" alt="Mozilla Firefox" />{" "}
+                  <img src="throbbers/edge.png" alt="Microsoft Edge" />
                 </p>
 
                 <p>
