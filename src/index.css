@@ -1,29 +1,78 @@
 :root
 {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family:  Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height:  1.5;
+  font-weight:  400;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  font-synthesis:  none;
+  text-rendering:  optimizeLegibility;
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing:  grayscale;
+  -webkit-text-size-adjust:  100%;
 
-  /* Colour palette */
+  /* Colour Palette */
 
-  --background-colour:   #000000;
-  --primary-colour:      #FF00FF;
-  --secondary-colour-1:  #800080;
-  --secondary-colour-2:  #008000;
-  --text-colour:         #FFFFFF;
-  --background-image:    url(./kw.svg);
+  --colour-primary:      #1D1D1D; /* Near Black */
+  --colour-secondary-1:  #ECF0F1; /* Light Silver */
+  --colour-secondary-2:  #2272FF; /* Neon Blue */
+  --colour-accent-1:     #27AE60; /* Circuit Green */
+  --colour-accent-2:     #F39C12; /* Gold */
+  
+  --background-image:  url(./kw.svg);
+
+  /* Visual Element Colour Assignments */
+
+  --navlink-colour-border:            var(--colour-accent-2);
+  --navlink-colour-background:        var(--colour-accent-1);
+  --navlink-colour:                   var(--colour-secondary-1);
+  --navlink-hover-colour-border:      var(--colour-accent-2);
+  --navlink-hover-colour-background:  var(--colour-accent-1);
+  --navlink-hover-colour:             var(--colour-secondary-1);
+}
+
+/* HTML Element Colour Assignments */
+
+a, a:visited
+{
+  color:  var(--colour-accent-2);
+}
+
+a:hover
+{
+  color:  var(--colour-accent-1);
+}
+
+body
+{
+  background-attachment:  fixed;
+  background-color:       var(--colour-primary);
+  background-image:       var(--background-image);
+  color:                  var(--colour-secondary-1);
+}
+
+button, input[type=button], input[type=submit], input[type=reset]
+{
+  border-width:      0px;
+  border-color:      var(--colour-accent-2);
+  background-color:  var(--colour-accent-1);
+  color:             var(--colour-secondary-1);
+}
+
+header
+{
+  background-color:  var(--colour-secondary-2);
+  color:             var(--colour-secondary-1);
+}
+
+hr
+{
+  color: var(--colour-secondary-2);
 }
 
 /*
 Layout Elements
 
-Make sure that these align with the layout elements in .pages/museum.css.
+Make sure that these align with the layout elements in ./pages/museum.css.
 */
 
 html
@@ -38,11 +87,7 @@ body
   margin:            0px;
   border-width:      0px;
   padding:           75px 0px 0px;
-  background:        fixed;
   min-width:         320px;
-  background-color:  var(--background-colour);
-  background-image:  var(--background-image);
-  color:             var(--text-colour);
   overflow:          auto scroll;
 }
 
@@ -53,9 +98,7 @@ header
   right:  0px;
   left:  0px;
   height:  75px;
-  z-index: 2;
-  background-color:  var(--background-colour);
-  background-image:  var(--background-image);
+  z-index:  2;
 }
 
 header h1
@@ -81,18 +124,27 @@ header nav ul li
 header nav ul li a
 {
   margin:  4px;
-  border-width:  4px;
-  border-style: hidden hidden solid;
-  border-color:  var(--secondary-colour-1);
-  padding:  8px 8px 4px;
+  border-width:  2px;
+  border-style:  hidden hidden solid;
+  border-color:  var(--navlink-colour-border);
+  padding:  8px 8px 6px;
+  background-color:  var(--navlink-colour-background);
+  color:  var(--navlink-colour);
 }
 
 header nav ul li a:hover
 {
   border-width:  6px;
-  border-style: double;
+  border-style:  double;
+  border-color:  var(--navlink-hover-colour-border);
   padding:  2px;
-  color: var(--secondary-colour-2);
+  background-color:  var(--navlink-hover-colour-background);
+  color:  var(--navlink-hover-colour);
+}
+
+header nav ul li a:visited
+{
+  color:  var(--navlink-colour);
 }
 
 main
@@ -106,41 +158,35 @@ main
 
 a
 {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover
-{
-  color: #535bf2;
+  font-weight:  500;
+  text-decoration:  inherit;
 }
 
 h1
 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size:  3.2em;
+  line-height:  1.1;
 }
 
-button
+button, input[type=button], input[type=submit], input[type=reset]
 {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  margin: 2px;
+  border-radius:  8px;
+  border:  1px solid transparent;
+  padding:  0.6em 1.2em;
+  font-size:  1em;
+  font-weight:  500;
+  font-family:  inherit;
+  cursor:  pointer;
+  transition:  border-color 0.25s;
 }
 
-button:hover
+button:hover, input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover
 {
-  border-color: #646cff;
+  border-width:  2px;
 }
 
 button:focus, button:focus-visible
 {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline:  4px auto -webkit-focus-ring-color;
 }
