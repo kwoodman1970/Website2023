@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 
 // import "./App.css";
 
@@ -20,11 +20,11 @@ function App()
 
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/portfolio">Online Portfolio</Link></li>
-            <li><Link to="/museum">Website Museum</Link></li>
-            <li><Link to="/humour">Humour</Link></li>
-            <li><Link to="/contact">Contact Me</Link></li>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/portfolio">Online Portfolio</NavLink></li>
+            <li><NavLink to="/museum">Website Museum</NavLink></li>
+            <li><NavLink to="/humour">Humour</NavLink></li>
+            <li><NavLink to="/contact">Contact Me</NavLink></li>
           </ul>
         </nav>
       </header>

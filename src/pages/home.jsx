@@ -24,18 +24,15 @@ function HomePage()
 {
   return (
     <main>
-      <div id="SlideShow">
-        <div>
-          <Zoom scale={0.4} indicators={() => <span className="indicator">O</span>}
-            arrows={false} cssClass="slide-container">
-            {
-              slideImages.map((filename, index) => <img key={index}
-                style={{width:  "640px", height:  "480px"}} src={filename} />)
-            }
-          </Zoom>
-        </div>
-      </div>
-
+      <aside id="SlideShow">
+        <Zoom scale={0.4} indicators={() => <span className="indicator">&nbsp;</span>}
+          arrows={false} cssClass="slide-container">
+          {
+            slideImages.map((filename, index) => <img key={index}
+              style={{width:  "640px", height:  "480px"}} src={filename} />)
+          }
+        </Zoom>
+      </aside>
 
       <p>
         The past few months have been some of the most challenging&nbsp;&ndash; and most

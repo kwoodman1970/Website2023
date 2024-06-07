@@ -22,12 +22,15 @@
 
   /* Visual Element Colour Assignments */
 
-  --navlink-colour-border:            var(--colour-accent-2);
-  --navlink-colour-background:        var(--colour-accent-1);
-  --navlink-colour:                   var(--colour-secondary-1);
-  --navlink-hover-colour-border:      var(--colour-accent-2);
-  --navlink-hover-colour-background:  var(--colour-accent-1);
-  --navlink-hover-colour:             var(--colour-secondary-1);
+  --navlink-colour-border:             var(--colour-accent-2);
+  --navlink-colour-background:         var(--colour-accent-1);
+  --navlink-colour:                    var(--colour-secondary-1);
+  --navlink-hover-colour-border:       var(--colour-accent-2);
+  --navlink-hover-colour-background:   var(--colour-accent-1);
+  --navlink-hover-colour:              var(--colour-secondary-1);
+  --navlink-active-colour-border:      var(--colour-accent-2);
+  --navlink-active-colour-background:  var(--colour-accent-1);
+  --navlink-active-colour:             var(--colour-secondary-1);
 }
 
 /* HTML Element Colour Assignments */
@@ -52,10 +55,16 @@ body
 
 button, input[type=button], input[type=submit], input[type=reset]
 {
-  border-width:      0px;
-  border-color:      var(--colour-accent-2);
-  background-color:  var(--colour-accent-1);
-  color:             var(--colour-secondary-1);
+  border-color:      var(--navlink-colour-border);
+  background-color:  var(--navlink-colour-background);
+  color:             var(--navlink-colour);
+}
+
+button:hover, input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover
+{
+  border-color:      var(--navlink-hover-colour-border);
+  background-color:  var(--navlink-hover-colour-background);
+  color:             var(--navlink-hover-colour);
 }
 
 header
@@ -67,6 +76,34 @@ header
 hr
 {
   color: var(--colour-secondary-2);
+}
+
+/* Visual Element Colour Assignments */
+
+header nav ul li a
+{
+  border-color:      var(--navlink-colour-border);
+  background-color:  var(--navlink-colour-background);
+  color:             var(--navlink-colour);
+}
+
+header nav ul li a:hover
+{
+  border-color:      var(--navlink-hover-colour-border);
+  background-color:  var(--navlink-hover-colour-background);
+  color:             var(--navlink-hover-colour);
+}
+
+header nav ul li a.active
+{
+  border-color:      var(--navlink-hover-colour-border);
+  background-color:  var(--navlink-hover-colour-background);
+  color:             var(--navlink-hover-colour);
+}
+
+header nav ul li a:visited
+{
+  color:  var(--navlink-colour);
 }
 
 /*
@@ -126,25 +163,29 @@ header nav ul li a
   margin:  4px;
   border-width:  2px;
   border-style:  hidden hidden solid;
-  border-color:  var(--navlink-colour-border);
   padding:  8px 8px 6px;
-  background-color:  var(--navlink-colour-background);
-  color:  var(--navlink-colour);
 }
 
 header nav ul li a:hover
 {
-  border-width:  6px;
-  border-style:  double;
-  border-color:  var(--navlink-hover-colour-border);
-  padding:  2px;
-  background-color:  var(--navlink-hover-colour-background);
-  color:  var(--navlink-hover-colour);
+  border-width:  2px;
+  border-style:  solid;
+  padding:  6px;
 }
 
-header nav ul li a:visited
+header nav ul li a:focus
 {
-  color:  var(--navlink-colour);
+  border-width:  2px;
+  border-style:  solid;
+  padding:  6px;
+  outline: none;
+}
+
+header nav ul li a.active
+{
+  border-width:  6px;
+  border-style:  double;
+  padding:  2px;
 }
 
 main
@@ -172,21 +213,26 @@ button, input[type=button], input[type=submit], input[type=reset]
 {
   margin: 2px;
   border-radius:  8px;
-  border:  1px solid transparent;
-  padding:  0.6em 1.2em;
+  border-width:  2px;
+  border-style:  hidden;
+  padding:  8px;
   font-size:  1em;
   font-weight:  500;
   font-family:  inherit;
   cursor:  pointer;
-  transition:  border-color 0.25s;
+}
+
+button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus
+{
+  border-width:  2px;
+  border-style:  solid;
+  padding:  6px;
+  outline: none;
 }
 
 button:hover, input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover
 {
   border-width:  2px;
-}
-
-button:focus, button:focus-visible
-{
-  outline:  4px auto -webkit-focus-ring-color;
+  border-style:  solid;
+  padding:  6px;
 }

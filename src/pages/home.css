@@ -1,36 +1,40 @@
-div#SlideShow
+aside#SlideShow
 {
   float:  right;
   margin:  2px;
-}
 
-.slide-container
-{
-  border-width:  0px;
-  padding:  0px;
-  width:  640px;
-  height:  480px;
-}
-
-span.indicator
-{
-  margin:  4px;
-  border-width:  4px;
-  border-style: hidden hidden solid;
-  border-color:  var(--secondary-colour-1);
-  color:  var(--secondary-colour-2);
-  padding:  8px 8px 4px;
-}
-
-span.indicator:hover
-{
-  border-width:  6px;
-  border-style: double;
-  padding:  2px;
-  color: var(--secondary-colour-2);
-}
-
-span.indicator.active
-{
-  color: var(--text-colour);
+  .slide-container
+  {
+    border-width:  0px;
+    padding:  0px;
+    width:  640px;
+    height:  480px;
+  }
+  
+  span.indicator
+  {
+    width: 12px;
+    height: 12px;
+    margin:  4px;
+    border-width:  2px;
+    border-style:  hidden hidden solid;
+    border-color:      var(--navlink-colour-border);
+    padding:  8px 8px 6px;
+    background-color:  var(--colour-accent-1);
+    color:             var(--colour-secondary-1);
+  }
+  
+  span.indicator:hover
+  {
+    border-width:  2px;
+    border-style:  solid;
+    padding:  6px;
+  }
+  
+  span.indicator.active
+  {
+    border-width:  6px;
+    border-style:  double;
+    padding:  2px;
+  }
 }
