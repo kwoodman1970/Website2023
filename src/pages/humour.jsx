@@ -5,7 +5,7 @@ import KnockKnockPage from "./humour/knockknock"
 import TrueLiesPage from "./humour/truelies"
 import HighTechPage from "./humour/hitech"
 
-import 'react-tabs/style/react-tabs.css';
+import "./humour.css";
 
 function HumourPage()
 {
@@ -13,7 +13,7 @@ function HumourPage()
     <main>
       <h2>My (Admittedly Dated) Humour Collection</h2>
 
-      <Tabs>
+      <Tabs disableUpDownKeys={true}>
         <TabList>
           <Tab>Riddles</Tab>
           <Tab>Knock Knock!</Tab>
