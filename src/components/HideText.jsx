@@ -6,9 +6,8 @@ texts (array of strings)
   An array of strings to concatenate together when building the text to hide.
 
 separators (string, optional)
-  A string of characters to go insert between each string in "texts".  If "separators"
-  is longer than the number of elements in "texts" then the trailing characters are
-  ignored.
+  A string of characters to insert between each string in "texts".  If "separators" is longer
+  than the number of elements in "texts" then the trailing characters are ignored.
 
 EXAMPLE
 =======

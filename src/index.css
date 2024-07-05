@@ -69,7 +69,7 @@ button:hover, input[type=button]:hover, input[type=submit]:hover, input[type=res
 
 header
 {
-  background-color:  var(--colour-secondary-2);
+  background-image:  repeating-conic-gradient(at 100px 20px, var(--colour-secondary-2) 8%, black 16%, var(--colour-secondary-2) 24%);
   color:             var(--colour-secondary-1);
 }
 
