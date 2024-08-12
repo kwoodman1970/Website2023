@@ -1,6 +1,6 @@
 import HideText from "../components/HideText";
 
-import "./contact.css";
+import classes from "./contact.module.css";
 
 const texts      = ["kwoodman", "telusplanet", "net"];
 const separators = "@.";
@@ -41,7 +41,7 @@ function ContactPage()
 
       <hr />
 
-      <div id="Methods">
+      <div className={classes.Methods}>
         <section>
           <h3>Send Me An E-mail &ndash; Right Now</h3>
 
@@ -72,7 +72,7 @@ function ContactPage()
         <section>
           <h3>Additional Web Presence</h3>
 
-          <p id="Links">
+          <p className={classes.Links}>
             <a href="https://linkedin.com/in/woodmankevin/">
               <figure>
                 <img src="linkedin_qr.svg" alt="LinkedIn QR Code" />

@@ -1,21 +1,21 @@
-#Methods
+.Methods
 {
   display:  grid;
   grid-template-columns:  1fr 1fr;
 }
 
-#Methods section
+.Methods section
 {
   display:  inline-block;
 }
 
-#Links
+.Links
 {
   display:  grid;
   grid-template-columns:  220px 220px 1fr;
 }
 
-#Links a
+.Links a
 {
   display: inline-block;
   margin:  4px;
@@ -28,17 +28,17 @@
   font-weight:  bold;
 }
 
-#Links a:hover
+.Links a:hover
 {
   color:  black
 }
 
-#Links a:visited
+.Links a:visited
 {
   color:  black
 }
 
-#Links a > figure, #Links a > figure > figcaption
+.Links a > figure, .Links a > figure > figcaption
 {
   display:  grid;
   grid-template-columns:  1fr;
@@ -47,7 +47,7 @@
   padding:  0px;
 }
 
-#Links a > figure > img
+.Links a > figure > img
 {
   margin:  0px;
   border: 0px;
@@ -56,7 +56,7 @@
   height:  200px;
 }
 
-#Links a > figure > figcaption img
+.Links a > figure > figcaption img
 {
   margin:  0px;
   border: 0px;
