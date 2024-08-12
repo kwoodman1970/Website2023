@@ -1,4 +1,4 @@
-aside#SlideShow
+aside.SlideShow
 {
   float:  right;
   margin:  2px;
@@ -31,6 +31,10 @@ aside#SlideShow
     padding:  6px;
   }
   
+  /*
+  The following declaration is the reason why this file can't be converted to a module.
+  */
+
   span.indicator.active
   {
     border-width:  6px;

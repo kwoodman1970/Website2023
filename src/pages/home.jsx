@@ -24,11 +24,11 @@ function HomePage()
 {
   return (
     <main>
-      <aside id="SlideShow">
+      <aside className="SlideShow">
         <Zoom scale={0.4} indicators={() => <span className="indicator">&nbsp;</span>}
           arrows={false} cssClass="slide-container">
           {
-            slideImages.map((filename, index) => <img key={index}
+            slideImages.map((filename) => <img key={filename}
               style={{width:  "640px", height:  "480px"}} src={filename} />)
           }
         </Zoom>
