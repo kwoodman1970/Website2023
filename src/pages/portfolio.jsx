@@ -104,12 +104,10 @@ function PortfolioPage()
     knocked down a level.  <h6 /> headings will become mere paragraphs.
     */
 
-    let markdownText = data.replace("<img src=\".README/banner.jpg\" alt=\"Banner\">", "");
+    let markdownText = data.replace("![Banner](.README/banner.jpg)", "");
 
     markdownText = markdownText.replaceAll("###### ", "");
     markdownText = markdownText.replaceAll("# ", "## ");
-
-    // markdownText = markdownText.replaceAll("<br />", "\n");
 
     return (
       <main>
