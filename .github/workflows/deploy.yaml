@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:  # Allows manual triggering from the Actions tab
+
+# Grant the GITHUB_TOKEN the permissions needed to deploy to Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one deployment at a time; don't cancel in-progress runs
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with Vite
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Vite outputs to 'dist' by default
+          path: ./dist
+
+  deploy:
+    name: Deploy
+    needs: build          # Waits for the build job to succeed
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}  # Shows the live URL in the Actions summary
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
