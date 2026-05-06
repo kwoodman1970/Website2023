@@ -1,5 +1,24 @@
 name: Deploy to GitHub Pages
 
+# This workflow takes the React website source files in the repository and builds them into a
+# production website, then deploys the website on the repository's GitHub Pages server.
+#
+# This workflow must be triggered manually because the only branch used here is the main branch
+# (for simplicity), and it can be updated into a non-production-ready state at any time for any
+# reason.
+
+# =============================================================================================
+# DESIGN NOTES
+# =============================================================================================
+
+# There are two jobs in this workflow.  The first job builds the production version of the
+# website and saves it in an artifact; the second one takes the saved artifact and deploys it
+# to GitHub Pages.
+
+# =============================================================================================
+# CONFIGURATION
+# =============================================================================================
+
 on:
   workflow_dispatch:  # Allows manual triggering from the Actions tab
 
@@ -14,6 +33,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# =============================================================================================
+# JOBS
+# =============================================================================================
+
 jobs:
   build:
     name: Build
@@ -25,28 +48,35 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22.x"
+          node-version: "22.x"  # the latest version of Node.js as of this writing
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build with Vite
         run: npm run build
 
+      - name: Verify build output
+        run: |
+          if [ ! -d "./dist" ]; then
+            echo "Error:  Build directory not found"
+            exit 1
+          fi
+          echo "Build successful -- ./dist directory exists"
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Vite outputs to 'dist' by default
-          path: ./dist
+          path: ./dist  # Vite outputs built websites to "./dist" by default
 
   deploy:
     name: Deploy
-    needs: build          # Waits for the build job to succeed
+    needs: build  # wait for the "Build" job to finish successfully
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}  # Shows the live URL in the Actions summary
+      url: ${{ steps.deployment.outputs.page_url }}  # show the URL in the Actions summary
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
