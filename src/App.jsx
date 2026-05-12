@@ -8,6 +8,7 @@ import PortfolioPage from "./pages/portfolio";
 import MuseumPage from "./pages/museum";
 import HumourPage from "./pages/humour";
 import ContactPage from "./pages/contact";
+import NotFoundPage from "./pages/notfound";
 
 function App()
 {
@@ -35,6 +36,7 @@ function App()
         <Route path="/museum" element={<MuseumPage />} />
         <Route path="/humour" exact element={<HumourPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
