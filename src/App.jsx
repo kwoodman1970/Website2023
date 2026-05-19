@@ -1,5 +1,5 @@
-// import { useState } from "react";
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { BrowserRouter, NavLink, Route, Routes, useLocation } from "react-router-dom";
 
 // import "./App.css";
 
@@ -10,10 +10,28 @@ import HumourPage from "./pages/humour";
 import ContactPage from "./pages/contact";
 import NotFoundPage from "./pages/notfound";
 
-function App()
-{
-  // const [currentPage, setCurrentPage] = useState("Home")
+function AppRoutes() {
+  const location = useLocation();
+  const previousLocation = useRef(document.referrer);
 
+  useEffect(() => {
+    previousLocation.current = window.location.origin + location.pathname + location.search +
+      location.hash
+  }, [location]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/portfolio" element={<PortfolioPage />} />
+      <Route path="/museum" element={<MuseumPage />} />
+      <Route path="/humour" element={<HumourPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="*" element={<NotFoundPage referrerURL={previousLocation.current} />} />
+    </Routes>
+    );
+  }
+
+function App() {
   return (
     <BrowserRouter>
       <header>
@@ -30,14 +48,7 @@ function App()
         </nav>
       </header>
 
-      <Routes>
-        <Route path="/" exact element={<HomePage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/museum" element={<MuseumPage />} />
-        <Route path="/humour" exact element={<HumourPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
