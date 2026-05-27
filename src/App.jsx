@@ -15,8 +15,7 @@ function AppRoutes() {
   const previousLocation = useRef(document.referrer);
 
   useEffect(() => {
-    previousLocation.current = window.location.origin + location.pathname + location.search +
-      location.hash
+    previousLocation.current = window.location.href
   }, [location]);
 
   return (
@@ -33,7 +32,7 @@ function AppRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Website2023">
       <header>
         <h1>Kevin Woodman</h1>
 
