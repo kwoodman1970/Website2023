@@ -5,6 +5,26 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kevin Woodman</title>
+    <script>
+      <!--
+        /*
+        GitHub Pages doesn't support single-page applications.  This is a workaround.
+
+        A broken link is directed to public/404.html.  It will have saved that link in session
+        storage and redirected the browser to this file.  Therefore, if a link is found in
+        session storage then it's transferred to the browser's history so that it's ready for
+        React Router to handle.
+        */
+
+        const redirect = sessionStorage.redirect;
+
+        if ((typeof redirect === "string") && (redirect !== window.location.pathname)) {
+          window.history.replaceState(null, "", redirect);
+        }
+
+        delete sessionStorage.redirect;
+      //-->
+    </script>
   </head>
   <body>
     <div id="root"></div>
