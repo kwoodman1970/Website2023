@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 # This workflow takes the React website source files in the repository and builds them into a
-# production website, then deploys the website on the repository's GitHub Pages server.
+# production website, then deploys the website to the kwoodman1970.github.io repository.
 #
 # This workflow must be triggered manually because the only branch used here is the main branch
 # (for simplicity), and it can be updated into a non-production-ready state at any time for any
@@ -13,7 +13,7 @@ name: Deploy to GitHub Pages
 
 # There are two jobs in this workflow.  The first job builds the production version of the
 # website and saves it in an artifact; the second one takes the saved artifact and deploys it
-# to GitHub Pages.
+# to the external kwoodman1970.github.io repository.
 
 # =============================================================================================
 # CONFIGURATION
@@ -22,11 +22,9 @@ name: Deploy to GitHub Pages
 on:
   workflow_dispatch:  # Allows manual triggering from the Actions tab
 
-# Grant the GITHUB_TOKEN the permissions needed to deploy to Pages
+# Minimal permissions needed for this workflow
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 # Allow only one deployment at a time; don't cancel in-progress runs
 concurrency:
@@ -65,19 +63,30 @@ jobs:
           fi
           echo "Build successful -- ./dist directory exists"
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: ./dist  # Vite outputs built websites to "./dist" by default
+          name: dist
+          path: ./dist
+          retention-days: 1  # Only keep for 1 day since we'll deploy immediately
 
   deploy:
     name: Deploy
     needs: build  # wait for the "Build" job to finish successfully
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}  # show the URL in the Actions summary
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: ./dist
+
+      - name: Deploy to kwoodman1970.github.io
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: kwoodman1970/kwoodman1970.github.io
+          publish_branch: main
+          publish_dir: ./dist
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"

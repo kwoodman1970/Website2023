@@ -32,7 +32,7 @@ function AppRoutes() {
 
 function App() {
   return (
-    <BrowserRouter basename="/Website2023">
+    <BrowserRouter>
       <header>
         <h1>Kevin Woodman</h1>
 
