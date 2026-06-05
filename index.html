@@ -20,6 +20,8 @@
 
         if ((typeof redirect === "string") && (redirect !== window.location.pathname)) {
           window.history.replaceState(null, "", redirect);
+
+          console.log("Found 404 redirect in session storage:  \"" + redirect + "\"");
         }
 
         delete sessionStorage.redirect;

@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 function NotFoundPage({ referrerURL }) {
   const requestedURL = window.location.href;
   const correctedReferrerURL = (referrerURL !== requestedURL ? referrerURL : "");
+
+  console.log("requstedURL = \"" + requestedURL + "\"; referrerURL = \"" + referrerURL + "\""+ "\"; correctedReferrerURL = \"" + correctedReferrerURL + "\"");
+
   const issueTitle = encodeURIComponent("404 Error:  Page Not Found");
   const issueBody = encodeURIComponent(
     "# What's the issue?\n" +

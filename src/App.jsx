@@ -15,6 +15,7 @@ function AppRoutes() {
   const previousLocation = useRef(document.referrer);
 
   useEffect(() => {
+    console.log("Location changing from \"" + previousLocation.current + "\" to \"" + window.location.href + "\"");
     previousLocation.current = window.location.href
   }, [location]);
 

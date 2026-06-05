@@ -202,7 +202,7 @@ function HomePage()
         <h2>Explore</h2>
 
         <p>
-          On this website, you&apos;ll find my <a href="/portfolio">projects portfolio</a>,
+          On this website, you&apos;ll find my <a href="/partfolio">projects portfolio</a>,
           my <a href="/museum">museum of obsolete websites</a>, and{" "}
           <a href="/contact">how to get in touch with me</a>.
         </p>
