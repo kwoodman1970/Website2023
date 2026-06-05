@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 function NotFoundPage({ referrerURL }) {
   const requestedURL = window.location.href;
+  const correctedReferrerURL = (referrerURL !== requestedURL ? referrerURL : "");
   const issueTitle = encodeURIComponent("404 Error:  Page Not Found");
   const issueBody = encodeURIComponent(
     "# What's the issue?\n" +
@@ -9,7 +10,8 @@ function NotFoundPage({ referrerURL }) {
     "## URL that didn't work:\n" +
     "`" + requestedURL + "`\n\n" +
     "## Web page with the URL that didn't work:\n" +
-    (referrerURL !== "" ? "`" + referrerURL + "`" : "Manual entry, bookmark, or undetermined") + "\n\n" +
+    (correctedReferrerURL !== "" ? "`" + correctedReferrerURL + "`" :
+      "Manual entry, bookmark, or undetermined") + "\n\n" +
     "## What I expected:\n" +
     "(Please briefly describe what you were looking for or what you expected to find)\n\n" +
     "## Additional context:\n" +
@@ -18,9 +20,9 @@ function NotFoundPage({ referrerURL }) {
   const githubIssueUrl = "https://github.com/kwoodman1970/Website2023/issues/new?title=" +
     issueTitle + "&body=" + issueBody;
 
-  const isFromThisSite = referrerURL.startsWith(window.location.origin);
-  const isFromExternalSite = ((referrerURL !== "") && !isFromThisSite);
-  const isDirectAccess = (referrerURL === "");
+  const isFromThisSite = correctedReferrerURL.startsWith(window.location.origin);
+  const isFromExternalSite = ((correctedReferrerURL !== "") && !isFromThisSite);
+  const isDirectAccess = (correctedReferrerURL === "");
 
   return (
     <main>
