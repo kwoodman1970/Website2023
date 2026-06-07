@@ -8,12 +8,15 @@
         /*
         GitHub Pages doesn't support single-page applications.  This is a workaround.
 
-        The current path is stored in session storage and the browser is redirected to
-        index.html, which, in turn, checks session storage to see if a redirect has occurred
-        and changes the browser history to allow React Router to handle it.
+        The path portion of the current location and the referring URL are stored in session
+        storage.  The browser is then redirected to the website's home page (index.html),
+        which, in turn, checks session storage to see if a redirect has occurred and changes
+        the browser history to allow React Router to handle it.
         */
 
         sessionStorage.redirect = location.pathname + location.search + location.hash;
+        sessionStorage.originalReferrer = document.referrer;
+
         location.replace(location.origin);
       //-->
     </script>

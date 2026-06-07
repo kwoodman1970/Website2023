@@ -12,7 +12,8 @@ import NotFoundPage from "./pages/notfound";
 
 function AppRoutes() {
   const location = useLocation();
-  const previousLocation = useRef(document.referrer);
+  const referrer = window.history.state.originalReferrer;
+  const previousLocation = useRef(referrer !== undefined ?  referrer : document.referrer);
 
   useEffect(() => {
     previousLocation.current = window.location.href

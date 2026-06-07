@@ -59,9 +59,10 @@ function NotFoundPage({ referrerURL }) {
 
         {isFromExternalSite && (
           <li>
-            <strong>You got here from <a href={referrerURL}><tt>{referrerURL}</tt></a>.</strong>  That&apos;s not within my
-            control.  You might want to let them know that they have a broken link so that they
-            can fix it.
+            <strong>You got here from
+            <a href={correctedReferrerURL}><tt>{correctedReferrerURL}</tt></a>.</strong>
+            That&apos;s not within my control.  You might want to let them know that they have
+            a broken link so that they can fix it.
           </li>
         )}
 

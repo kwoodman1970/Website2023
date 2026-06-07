@@ -10,19 +10,23 @@
         /*
         GitHub Pages doesn't support single-page applications.  This is a workaround.
 
-        A broken link is directed to public/404.html.  It will have saved that link in session
-        storage and redirected the browser to this file.  Therefore, if a link is found in
-        session storage then it's transferred to the browser's history so that it's ready for
-        React Router to handle.
+        A broken link is directed to public/404.html, which will save that link's path portion
+        and the referring URL in session storage then redirect the browser to the website's
+        home page (this file).  Therefore, if a path is detected in session storage then it's
+        transferred to the browser's history so that it's ready for React Router to handle.
         */
 
         const redirect = sessionStorage.redirect;
+        const originalReferrer = sessionStorage.originalReferrer;
 
         if ((typeof redirect === "string") && (redirect !== window.location.pathname)) {
-          window.history.replaceState(null, "", redirect);
+          if (typeof originalReferrer === "string") {
+            window.history.replaceState({ originalReferrer }, "", redirect);
+          }
         }
 
         delete sessionStorage.redirect;
+        delete sessionStorage.originalReferrer;
       //-->
     </script>
   </head>
