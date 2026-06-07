@@ -17,14 +17,19 @@
         */
 
         const redirect = sessionStorage.redirect;
+        const originalReferrer = sessionStorage.originalReferrer;
 
         if ((typeof redirect === "string") && (redirect !== window.location.pathname)) {
-          window.history.replaceState(null, "", redirect);
+          if (typeof originalReferrer === "string") {
+            // Expose the original referrer to the React app before we clear sessionStorage.
+            window.history.replaceState({ originalReferrer }, "", redirect);
+          }
 
-          console.log("Found 404 redirect in session storage:  \"" + redirect + "\"");
+          console.log("Found 404 redirect in session storage:  \"" + redirect + "\"; original referrer: \"" + originalReferrer + "\"");
         }
 
         delete sessionStorage.redirect;
+        delete sessionStorage.originalReferrer;
       //-->
     </script>
   </head>

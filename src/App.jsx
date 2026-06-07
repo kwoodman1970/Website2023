@@ -11,8 +11,11 @@ import ContactPage from "./pages/contact";
 import NotFoundPage from "./pages/notfound";
 
 function AppRoutes() {
+  console.log("History state referrer:  \"" + window.history.state?.originalReferrer
+    + "\", document.referrer: \"" + document.referrer + "\"");
   const location = useLocation();
-  const previousLocation = useRef(document.referrer);
+  const referrer = window.history.state.originalReferrer;
+  const previousLocation = useRef(referrer !== undefined ?  referrer : document.referrer);
 
   useEffect(() => {
     console.log("Location changing from \"" + previousLocation.current + "\" to \"" + window.location.href + "\"");
