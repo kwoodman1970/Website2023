@@ -11,8 +11,27 @@ import ContactPage from "./pages/contact";
 import NotFoundPage from "./pages/notfound";
 
 function AppRoutes() {
+  /*
+  In a React single-page application (SPA), "document.referrer" is only reliable for the
+  initial browser navigation to the website and may not identify the true source of a broken
+  internal link after GitHub Pages issues a 404 redirect.  There is a workaround for this.
+
+  1.  When GitHub Pages responds with a 404 status code and the contents of "public/404.html",
+      the originally requested URL plus the original referrer URL is stored.
+  2.  The browser is then automatically redirected to "index.html" which inserts the requested
+      URL into the browser history and attaches the original referrer URL to the browser
+      history state.
+  3.  The web application is then loaded and this component initializes the "previousLocation"
+      reference from the browser history state or, if there's nothing there, from
+      "document.referrer".
+  4.  This component updates "previousLocation" on every route change.
+
+  This results in "previousLocation" always being the immediate prior URL regardless of whether
+  the user navigated to the current page from an external link or through in-app navigation.
+  */
+
   const location = useLocation();
-  const referrer = window.history.state.originalReferrer;
+  const referrer = window.history?.state?.referrerURL;
   const previousLocation = useRef(referrer !== undefined ?  referrer : document.referrer);
 
   useEffect(() => {
