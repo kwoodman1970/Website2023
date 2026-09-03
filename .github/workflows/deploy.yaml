@@ -49,6 +49,51 @@ jobs:
           node-version: "22.x"  # the latest version of Node.js as of this writing
           cache: "npm"
 
+      # GitHub Pages serves the contents of "./public/404.html" for unknown paths which, in
+      # turn, redirects the web browser to "./index.html" (which, in turn, loads the web
+      # application as usual and renders a 404 page component).  However, many search engine &
+      # AI agent crawlers stop when they receive a 404 response and never execute client-side
+      # scripts.  This step gets around this problem by creating crawlable static entry points
+      # for each React route.
+      #
+      # The result is that each valid React route has a corresponding static entry point that
+      # loads the web application.  Crawlers can thus find and index these pages without
+      # encountering 404 responses.
+
+      - name: Generate static route entry points
+        shell: bash
+
+        # This is the process:
+        #
+        # 1.  Extract each string literal (in double quotes) route path from "/src/App.jsx"
+        #     (e.g.:  <Route path="/example" ... />).
+        # 2.  Isolate route values, sort them, and remove duplicates.
+        # 3.  For each unique route:
+        #     a.  Skip "/", "*", and empty routes.
+        #     b.  Remove leading & trailing slashes so that each route can become a directory
+        #         name.
+        #     c.  Create the "./public/<route>/" directory and copy "./index.html" into it.
+
+        run: |
+          set -euo pipefail
+
+          grep -oE '<Route[[:space:]]+path="[^"]+"' src/App.jsx \
+            | sed -E 's/.*path="([^"]+)"/\1/' \
+            | sort -u \
+            | while IFS= read -r route; do
+                case "$route" in
+                  "/"|"*"|"") continue ;;
+                esac
+
+                route="${route#/}"
+                route="${route%/}"
+                [[ -z "$route" ]] && continue
+
+                mkdir -p "public/$route"
+                cp index.html "public/$route/index.html"
+                echo "Created public/$route/index.html"
+              done
+
       - name: Install dependencies
         run: npm ci
 

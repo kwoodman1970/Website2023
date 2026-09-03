@@ -30,9 +30,9 @@ function AppRoutes() {
   the user navigated to the current page from an external link or through in-app navigation.
   */
 
-  const location = useLocation();
   const referrer = window.history?.state?.referrerURL;
-  const previousLocation = useRef(referrer !== undefined ?  referrer : document.referrer);
+  const previousLocation = useRef(referrer !== undefined ? referrer : document.referrer);
+  const location = useLocation();
 
   useEffect(() => {
     previousLocation.current = window.location.href
@@ -40,6 +40,13 @@ function AppRoutes() {
 
   return (
     <Routes>
+      {/*
+      "path" MUST be the first argument in each "<Route />" element and be set to a double-
+      quoted string literal.  The "build" job in the GitHub Actions workflow "deploy.yaml" uses
+      a regular expression to extract all literal "path" values from this file and create a
+      corresponding directory structure in the "public" folder.
+      */}
+
       <Route path="/" element={<HomePage />} />
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/museum" element={<MuseumPage />} />

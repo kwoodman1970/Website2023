@@ -21,10 +21,9 @@
         const destinationURL = sessionStorage.destinationURL;
         const referrerURL = sessionStorage.referrerURL;
 
-        if ((typeof destinationURL === "string") && (destinationURL !== window.location.pathname)) {
-          if (typeof referrerURL === "string") {
-            window.history.replaceState({ referrerURL }, "", destinationURL);
-          }
+        if (destinationURL !== undefined) {
+          window.history.replaceState({ referrerURL }, "", destinationURL);
+
 
           console.log("Found 404 redirect in session storage:  \"" + destinationURL
             + "\"; original referrer: \"" + referrerURL + "\"");
