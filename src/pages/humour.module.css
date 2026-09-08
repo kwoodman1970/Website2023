@@ -1,34 +1,36 @@
 /*
 The contents of this stylesheet were taken from the react-tabs GitHub repository and modified
 extensively.
+
+All ".react-tabs__*" classes are applied by react-tabs itself, so they must stay unscoped.
 */
 
 /* Visual Element Colour Assignments */
 
-.react-tabs 
+:global(.react-tabs)
 {
   -webkit-tap-highlight-color:  transparent;
 }
 
-.react-tabs__tab-list 
+:global(.react-tabs__tab-list)
 {
   border-bottom-color:  var(--navlink-colour-border);
 }
 
-.react-tabs__tab 
+:global(.react-tabs__tab)
 {
   border-color:      var(--navlink-colour-border);
   background-color:  var(--navlink-colour-background);
 }
 
-.react-tabs__tab--disabled 
+:global(.react-tabs__tab--disabled)
 {
   color:  var(--colour-primary);
 }
 
 /* Layout Elements */
 
-.react-tabs__tab-list 
+:global(.react-tabs__tab-list)
 {
   border-bottom-width:  2px;
   border-bottom-style:  solid;
@@ -36,7 +38,7 @@ extensively.
   padding:              0px;
 }
 
-.react-tabs__tab 
+:global(.react-tabs__tab)
 {
   display:        inline-block;
   margin:         0px 4px;
@@ -48,41 +50,41 @@ extensively.
   cursor:         pointer;
 }
 
-.react-tabs__tab:hover 
+:global(.react-tabs__tab:hover)
 {
   border-width:  2px;
   border-style:  solid solid none;
   padding:       6px;
 }
 
-.react-tabs__tab:focus 
+:global(.react-tabs__tab:focus)
 {
   outline:  none;
 }
 
-.react-tabs__tab--selected 
+:global(.react-tabs__tab--selected)
 {
   border-width:  6px;
   border-style:  double double none;
   padding:       2px 2px 6px;
 }
 
-.react-tabs__tab--disabled 
+:global(.react-tabs__tab--disabled)
 {
   cursor:  default;
 }
 
-.react-tabs__tab-panel 
+:global(.react-tabs__tab-panel)
 {
   display:  none;
 }
 
-.react-tabs__tab-panel--selected 
+:global(.react-tabs__tab-panel--selected)
 {
   display:  block;
 }
 
-.react-tabs__tab--selected:hover 
+:global(.react-tabs__tab--selected:hover)
 {
   border-width:  6px;
   border-style:  double double none;

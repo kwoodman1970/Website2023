@@ -5,7 +5,7 @@ import KnockKnockPage from "./humour/knockknock"
 import TrueLiesPage from "./humour/truelies"
 import HighTechPage from "./humour/hitech"
 
-import "./humour.css";
+import "./humour.module.css";
 
 function HumourPage()
 {
