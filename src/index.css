@@ -17,7 +17,7 @@
   --colour-secondary-2:  #2272FF; /* Neon Blue */
   --colour-accent-1:     #27AE60; /* Circuit Green */
   --colour-accent-2:     #F39C12; /* Gold */
-  
+
   --background-image:  url(./kw.svg);
 
   /* Visual Element Colour Assignments */
@@ -109,7 +109,7 @@ header nav ul li a:visited
 /*
 Layout Elements
 
-Make sure that these align with the layout elements in ./pages/museum.css.
+Make sure that these align with the layout elements in ./pages/museum.module.css.
 */
 
 html

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import "./museum.css";
+import classes from "./museum.module.css";
 
 const websites = [];
 
@@ -37,7 +37,7 @@ function MuseumPage()
 
   return (
     <>
-      <main id="Museum">
+      <main className={classes.Museum}>
         <section id="Selector">
           <h2>My Website Museum</h2>
 
@@ -54,7 +54,7 @@ function MuseumPage()
           }
         </section>
 
-        <section id="View">
+        <section className={classes.View}>
           {
             currentWebsite ?
               <iframe src={currentWebsite.href} title={currentWebsite.name}
@@ -77,7 +77,7 @@ function MuseumPage()
                   Browsers I Have Coded For
                 </h3>
 
-                <p id="BrowserThrobbers">
+                <p className={classes.BrowserThrobbers}>
                   <img src="throbbers/ncsamosaic.gif" alt="NCSA Mosaic" />{" "}
                   <img src="throbbers/netscape094.gif" alt="Netscape Navigator 1" />{" "}
                   <img src="throbbers/netscape304.gif" alt="Netscape Navigator 2-3" />{" "}
