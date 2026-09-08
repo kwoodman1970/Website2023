@@ -3,7 +3,8 @@ aside.SlideShow
   float:  right;
   margin:  2px;
 
-  .slide-container
+  /* "slide-container" is applied by react-slideshow-image itself, so it must stay unscoped. */
+  :global(.slide-container)
   {
     border-width:  0px;
     padding:  0px;
@@ -31,11 +32,8 @@ aside.SlideShow
     padding:  6px;
   }
 
-  /*
-  The following declaration is the reason why this file can't be converted to a module.
-  */
-
-  :is(span).indicator.active
+  /* "active" is added by react-slideshow-image itself, so it must stay unscoped. */
+  :is(span).indicator:global(.active)
   {
     border-width:  6px;
     border-style:  double;

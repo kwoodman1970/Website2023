@@ -2,7 +2,7 @@ import { Zoom } from "react-slideshow-image";
 
 import "react-slideshow-image/dist/styles.css";
 
-import "./home.css";
+import classes from "./home.module.css";
 
 const slideImages = ["./slides/closeup.jpg",
                      "./slides/readingmenu.jpg",
@@ -23,8 +23,8 @@ function HomePage()
 {
   return (
     <main>
-      <aside className="SlideShow">
-        <Zoom scale={0.4} indicators={() => <span className="indicator">&nbsp;</span>}
+      <aside className={classes.SlideShow}>
+        <Zoom scale={0.4} indicators={() => <span className={classes.indicator}>&nbsp;</span>}
           arrows={false} cssClass="slide-container">
           {
             slideImages.map((filename) => <img key={filename}
