@@ -69,37 +69,37 @@ jobs:
       - name: Collect React route paths
         shell: bash
 
-        # This is the process:
+        # The long pipe of commands does the following:
         #
-        # 1.  Extract each string literal (in double quotes) route path from "/src/App.jsx"
-        #     (e.g.:  <Route path="/example" ... />).
-        # 2.  Isolate route values, sort them, and remove duplicates.
-        # 3.  For each unique route:
-        #     a.  Skip "/", "*", and empty routes.
-        #     b.  Remove leading & trailing slashes so that each route can become a directory
-        #         name.
-        #     c.  Write the normalized route to ".route-paths.txt".
+        # 1. Convert all whitespace sequences in "src/App.jsx" to a single space.
+        # 2. Search for all instances of '<Route path="route"'.
+        # 3. Extract each route's path from these instances.
+        # 4. Strip leading & trailing slashes from each route's path and discard the catch-all
+        #    path plus any empty paths.
+        # 5. Save all remaining routes to a temporary file for future use.
 
         run: |
           set -euo pipefail
 
           : > .route-paths.txt
 
-          grep -oE '<Route[[:space:]]+path="[^"]+"' src/App.jsx \
+          tr -s "[:space:]" " " < src/App.jsx \
+            | grep -oE '<Route path="[^"]+"' \
             | sed -E 's/.*path="([^"]+)"/\1/' \
             | sort -u \
             | while IFS= read -r route; do
-                case "$route" in
-                  "/"|"*"|"") continue ;;
-                esac
-
                 route="${route#/}"
                 route="${route%/}"
-                [[ -z "$route" ]] && continue
+                case "$route" in
+                  "*"|"")
+                    continue ;;
+                esac
+                echo "$route"
+              done > .route-paths.txt
 
-                echo "$route" >> .route-paths.txt
-                echo "Found route:  $route"
-              done
+        # At this point, each line in ".route-paths.txt" will be a
+        # defined route (excluding the root and catch-all routes) with
+        # no surrounding slashes.
 
       - name: Build with Vite
         run: npm run build
