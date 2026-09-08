@@ -3,7 +3,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
-import "./portfolio.css";
+import classes from "./portfolio.module.css";
 
 /*
 Rather than manually synchronize and/or convert the portfolio's README.md file to HTML, this
@@ -111,7 +111,7 @@ function PortfolioPage()
 
     return (
       <main>
-        <section id="Portfolio">
+        <section className={classes.Portfolio}>
           <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={rehypeRaw}>{markdownText}</Markdown>
         </section>
 
